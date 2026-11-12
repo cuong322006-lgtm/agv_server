@@ -1,0 +1,24 @@
+# ================= BỎ QUA CÁC THƯ MỤC NẶNG & TẠM THỜI =================
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Bỏ qua file thực thi lớn đã có sẵn trên từng máy
+cloudflared.exe
+yolov8n.pt
+
+# Bỏ qua thư mục đóng gói zip thủ công và file tạm
+Goi_Update_Code/
+Update_Code_AGV*.zip
+current_tunnel_url.txt
+
+# Bỏ qua cấu hình IDE cá nhân
+.vscode/
+.idea/
+
+# Lưu ý: Các file code (.py, .bat, .md, firmware/*.ino),
+# các mô hình AI huấn luyện mới (như best.pt, thung_hang.pt)
+# và thư mục ảnh mẫu dataset_thung_hang/ SẼ ĐƯỢC ĐỒNG BỘ LÊN GIT!
