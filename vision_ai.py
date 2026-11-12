@@ -15,7 +15,7 @@ class VisionAI:
     def __init__(self):
         print("[*] Dang nap mo hinh YOLOv8...")
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        model_path = os.path.join(base_dir, 'yolov8n.pt')
+        model_path = os.path.join(base_dir, 'best.pt')
         try:
             target_model = model_path if os.path.exists(model_path) else 'yolov8n.pt'
             self.model = YOLO(target_model)
