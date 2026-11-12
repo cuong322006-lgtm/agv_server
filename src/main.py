@@ -11,6 +11,15 @@ from lidar_tcp_server import LidarTCPServer
 from vision_ai import VisionAI
 from slam_mapper import SLAMMapper
 import json
+import sys
+
+def get_project_root() -> str:
+    d = os.path.dirname(os.path.abspath(__file__))
+    if d not in sys.path:
+        sys.path.insert(0, d)
+    return os.path.dirname(d) if os.path.basename(d).lower() == "src" else d
+
+PROJECT_ROOT = get_project_root()
 
 app = FastAPI(title="AGV Server Dashboard (Secure Multi-Network)")
 
@@ -536,8 +545,10 @@ async def api_share_links():
         pass
     if not tunnel_url:
         try:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            txt_path = os.path.join(base_dir, "current_tunnel_url.txt")
+            base_dir = PROJECT_ROOT
+            txt_path = os.path.join(base_dir, "tools", "current_tunnel_url.txt")
+            if not os.path.exists(txt_path):
+                txt_path = os.path.join(base_dir, "current_tunnel_url.txt")
             if os.path.exists(txt_path):
                 with open(txt_path, "r", encoding="utf-8") as f:
                     tunnel_url = f.read().strip()
@@ -555,7 +566,7 @@ async def api_download_update():
     nén thành 1 file Update_Code_AGV.zip ngay trong bộ nhớ RAM và tải thẳng về trình duyệt!
     Bỏ qua thư mục venv (2GB) và cloudflared.exe (55MB) để gói cập nhật siêu nhẹ (<100KB).
     """
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = PROJECT_ROOT
     update_dir = os.path.join(base_dir, "Goi_Update_Code")
     os.makedirs(update_dir, exist_ok=True)
     mem_zip = io.BytesIO()
@@ -629,8 +640,10 @@ async def websocket_endpoint(websocket: WebSocket):
 
 def auto_start_tunnel_if_needed():
     import threading
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    cloudflared_path = os.path.join(base_dir, "cloudflared.exe")
+    base_dir = PROJECT_ROOT
+    cloudflared_path = os.path.join(base_dir, "tools", "cloudflared.exe")
+    if not os.path.exists(cloudflared_path):
+        cloudflared_path = os.path.join(base_dir, "cloudflared.exe")
     if not os.path.exists(cloudflared_path):
         return
 
@@ -663,7 +676,7 @@ async def startup_event():
 
 if __name__ == "__main__":
     uvicorn.run(
-        "main:app",
+        app,
         host="0.0.0.0",
         port=8000,
         ws_ping_interval=None,

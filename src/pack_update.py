@@ -4,7 +4,8 @@ import datetime
 import shutil
 
 def main():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.dirname(cur_dir) if os.path.basename(cur_dir).lower() == "src" else cur_dir
     
     # Tao thu muc rieng de chua cac ban dong goi Update
     update_dir = os.path.join(base_dir, "Goi_Update_Code")

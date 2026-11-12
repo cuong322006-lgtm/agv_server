@@ -6,9 +6,17 @@ echo =================================================================
 echo.
 if not exist venv (
     echo [!] Chua tim thay moi truong ao venv. Dang tu dong chay cai dat...
-    call install.bat
+    if exist "tools\install.bat" (
+        call tools\install.bat
+    ) else (
+        call install.bat
+    )
 )
 echo [*] Dang kich hoat moi truong ao va khoi dong FastAPI Server...
 call venv\Scripts\activate.bat
-python main.py
+if exist "src\main.py" (
+    python src\main.py
+) else (
+    python main.py
+)
 pause

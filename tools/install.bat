@@ -24,10 +24,14 @@ call venv\Scripts\activate.bat
 echo.
 echo [3/3] Cai dat cac thu vien AI (FastAPI, OpenCV, YOLOv8, pyzbar...)...
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+if exist "tools\requirements.txt" (
+    pip install -r tools\requirements.txt
+) else (
+    pip install -r requirements.txt
+)
 
 echo.
 echo =================================================================
-echo   CAI DAT HOAN TAT 100%! BAN CO THE CHAY START_SERVER.BAT DE DUNG!
+echo   CAI DAT HOAN TAT 100%%! BAN CO THE CHAY START_SERVER.BAT DE DUNG!
 echo =================================================================
 pause

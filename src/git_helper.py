@@ -1,10 +1,10 @@
 import os
 import sys
+import shutil
 import subprocess
 import datetime
 
 def find_git_exe():
-    # Tim git trong PATH hoac cac thu muc cai dat mac dinh cua Windows
     candidates = [
         r"C:\Program Files\Git\cmd\git.exe",
         r"C:\Program Files\Git\bin\git.exe",
@@ -53,11 +53,45 @@ def run_git(git_exe, args, check=False):
 
 def run_git_output(git_exe, args):
     cmd = [git_exe] + args
-    res = subprocess.run(cmd, capture_output=True, text=True)
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
     return res.returncode, res.stdout.strip(), res.stderr.strip()
 
+def backup_modified_files(git_exe, base_dir):
+    """Tu dong sao luu cac file dang sua tren may vao Goi_Update_Code/Backup_May_Hien_Tai"""
+    # Tat quotepath de git status tra ve ten file tieng Viet chuẩn (như 'Báo cáo/...')
+    run_git(git_exe, ["config", "core.quotepath", "false"])
+    code, status_out, _ = run_git_output(git_exe, ["status", "--porcelain"])
+    if code != 0 or not status_out:
+        return []
+    modified_files = []
+    for line in status_out.splitlines():
+        if len(line) > 3:
+            rel_path = line[3:].strip().strip('"')
+            full_path = os.path.join(base_dir, rel_path)
+            if os.path.isfile(full_path):
+                modified_files.append(rel_path)
+
+    if modified_files:
+        now_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_dir = os.path.join(base_dir, "Goi_Update_Code", f"Backup_May_Hien_Tai_{now_str}")
+        for rel_path in modified_files:
+            src = os.path.join(base_dir, rel_path)
+            dst = os.path.join(backup_dir, rel_path)
+            try:
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
+                shutil.copy2(src, dst)
+            except Exception:
+                pass
+        print(f"[*] Da tu dong sao luu {len(modified_files)} file dang sua tren may nay vao:")
+        print(f"    -> {backup_dir}")
+    return modified_files
+
+def get_project_root():
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.dirname(cur_dir) if os.path.basename(cur_dir).lower() == "src" else cur_dir
+
 def do_push():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = get_project_root()
     os.chdir(base_dir)
 
     print("=" * 72)
@@ -68,19 +102,17 @@ def do_push():
     if not git_exe:
         return
 
-    # 1. Khoi tao git init neu chua co
     if not os.path.exists(os.path.join(base_dir, ".git")):
         print("[*] Dang khoi tao kho Git cuc bo lan dau tien...")
         run_git(git_exe, ["init"])
         run_git(git_exe, ["branch", "-M", "main"])
 
-    # 2. Dam bao user.name & user.email da duoc cau hinh
+    run_git(git_exe, ["config", "core.quotepath", "false"])
     code, name_out, _ = run_git_output(git_exe, ["config", "user.name"])
     if code != 0 or not name_out:
         run_git(git_exe, ["config", "user.name", "AGV Developer"])
         run_git(git_exe, ["config", "user.email", "agv_team@local.dev"])
 
-    # 3. Kiem tra link GitHub Remote Origin
     code, remote_url, _ = run_git_output(git_exe, ["remote", "get-url", "origin"])
     if code != 0 or not remote_url:
         print("\n[!] Chua gan link kho chua GitHub (Remote Origin)!")
@@ -96,7 +128,6 @@ def do_push():
     else:
         print(f"[*] Kho GitHub hien tai: {remote_url}")
 
-    # 4. Hien thi danh sach cac file vua thay doi
     print("\n[*] Cac file vua duoc sua doi / them moi:")
     run_git(git_exe, ["status", "-s"])
 
@@ -114,19 +145,22 @@ def do_push():
     if res.returncode == 0:
         print("\n" + "=" * 72)
         print(" [THANH CONG] DA DAY 100% CODE MOI NHAT LEN GITHUB!")
-        print(" Bay gio may dong nghiep chi can bam '2_Keo_Code_Moi_Ve.bat' la xong!")
+        print(" Bay gio may kia chi can bam '2_Keo_Code_Moi_Ve.bat' la xong!")
         print("=" * 72)
     else:
-        print("\n[!] Dang dong bo code tu GitHub ve truoc khi day len...")
-        run_git(git_exe, ["pull", "origin", "main", "--rebase"])
+        print("\n[!] May kia vua day code moi len truoc. Dang tu dong gop code 2 may...")
+        pull_res = run_git(git_exe, ["pull", "origin", "main", "--rebase", "--autostash"])
+        if pull_res.returncode != 0:
+            run_git(git_exe, ["rebase", "--abort"])
+            run_git(git_exe, ["pull", "origin", "main", "--no-rebase", "-X", "ours"])
         res2 = run_git(git_exe, ["push", "-u", "origin", "main"])
         if res2.returncode == 0:
-            print("\n[THANH CONG] Da dong bo va day 100% code len GitHub!")
+            print("\n[THANH CONG] Da gop code 2 may va day 100% code len GitHub!")
         else:
-            print("\n[!] Co loi khi day len GitHub. Hay kiem tra lai link Repo hoac dang nhap GitHub.")
+            print("\n[!] Co loi khi day len GitHub. Hay kiem tra lai quyen Collaborator hoac dang nhap GitHub.")
 
 def do_pull():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = get_project_root()
     os.chdir(base_dir)
 
     print("=" * 72)
@@ -146,6 +180,7 @@ def do_pull():
             print("[!] Ban chua nhap link!")
             return
         run_git(git_exe, ["remote", "add", "origin", repo_url])
+        backup_modified_files(git_exe, base_dir)
         print("[*] Dang tai code moi nhat tu GitHub ve may...")
         run_git(git_exe, ["fetch", "origin", "main"])
         run_git(git_exe, ["reset", "--hard", "origin/main"])
@@ -154,6 +189,7 @@ def do_pull():
         print("=" * 72)
         return
 
+    run_git(git_exe, ["config", "core.quotepath", "false"])
     code, remote_url, _ = run_git_output(git_exe, ["remote", "get-url", "origin"])
     if code != 0 or not remote_url:
         repo_url = input("--> Dan link GitHub Repository cua nhom vao day: ").strip()
@@ -161,14 +197,42 @@ def do_pull():
             return
         run_git(git_exe, ["remote", "add", "origin", repo_url])
 
-    print(f"[*] Dang keo cac file vua sua tu GitHub ({remote_url}) ve may...")
-    run_git(git_exe, ["stash"])
-    res = run_git(git_exe, ["pull", "origin", "main", "--rebase"])
-    run_git(git_exe, ["stash", "pop"])
+    # Luon sao luu cac file dang sua tren may truoc khi pull
+    modified = backup_modified_files(git_exe, base_dir)
+    if modified:
+        print("\n[!] PHAT HIEN MAY NAY CUNG VUA SUA CODE O CAC FILE:")
+        for m in modified:
+            print(f"    - {m}")
+        print("\nBan muon xu ly nhu the nao khi keo code moi tu GitHub ve?")
+        print("  [1] Tu dong GOP CHUNG (Giu ca code may nay vua sua + code moi tren GitHub) - KHUYEN DUNG")
+        print("  [2] Lay 100% code moi tren GitHub de len (Bản đang sửa đã được Backup an toàn)")
+        choice = input("--> Chon 1 hoac 2 (Nhan Enter de chon [1]): ").strip()
+    else:
+        choice = "1"
+
+    print(f"\n[*] Dang keo cac file vua sua tu GitHub ({remote_url}) ve may...")
+    if choice == "2":
+        run_git(git_exe, ["fetch", "origin", "main"])
+        run_git(git_exe, ["reset", "--hard", "origin/main"])
+        print("\n" + "=" * 72)
+        print(" [THANH CONG] DA CAP NHAT 100% THEO BAN TREN GITHUB!")
+        print("=" * 72)
+        return
+
+    # Dung co --autostash chinh chu cua Git de TU DONG cat moi thay doi (ke ca file CRLF hoac file moi),
+    # keo code tu GitHub ve xong roi tu dong bung ra lai ma KHONG BAO GIO bi loi 'You have unstaged changes'!
+    res = run_git(git_exe, ["pull", "origin", "main", "--rebase", "--autostash"])
+    if res.returncode != 0:
+        print("\n[!] Phat hien xung dot khi rebase -> Dang chuyen sang che do Gop (Merge) an toan...")
+        run_git(git_exe, ["rebase", "--abort"])
+        run_git(git_exe, ["stash", " clear"])
+        run_git(git_exe, ["add", "."])
+        run_git(git_exe, ["commit", "-m", "Luu tam thay doi cuc bo truoc khi pull"])
+        res = run_git(git_exe, ["pull", "origin", "main", "--no-rebase", "-X", "theirs"])
 
     if res.returncode == 0:
         print("\n" + "=" * 72)
-        print(" [THANH CONG] MAY CUA BAN DA CAP NHAT CODE MOI NHAT!")
+        print(" [THANH CONG] DA KEO VA GOP CODE MOI NHAT TU GITHUB VE MAY!")
         print(" Hay tat va bat lai 'start_server.bat' de ap dung thay doi.")
         print("=" * 72)
 

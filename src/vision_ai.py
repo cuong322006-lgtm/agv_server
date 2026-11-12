@@ -14,10 +14,21 @@ torch.set_num_threads(2)
 class VisionAI:
     def __init__(self):
         print("[*] Dang nap mo hinh YOLOv8...")
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        model_path = os.path.join(base_dir, 'best.pt')
+        src_dir = os.path.dirname(os.path.abspath(__file__))
+        base_dir = os.path.dirname(src_dir) if os.path.basename(src_dir).lower() == 'src' else src_dir
+        candidates = [
+            os.path.join(base_dir, 'models', 'best.pt'),
+            os.path.join(base_dir, 'best.pt'),
+            os.path.join(src_dir, 'best.pt'),
+            os.path.join(base_dir, 'models', 'yolov8n.pt'),
+            os.path.join(base_dir, 'yolov8n.pt'),
+        ]
+        target_model = 'yolov8n.pt'
+        for c in candidates:
+            if os.path.exists(c):
+                target_model = c
+                break
         try:
-            target_model = model_path if os.path.exists(model_path) else 'yolov8n.pt'
             self.model = YOLO(target_model)
             print(f"[*] YOLOv8 da nap thanh cong tu: {target_model}")
         except Exception as e:
@@ -62,7 +73,9 @@ class VisionAI:
         self.cam_fps = 0.0
 
         # === [MOI NANG CAP - THU THAP DATASET THUNG HANG CHO YOLOV8] ===
-        self.dataset_dir = os.path.join(base_dir, 'dataset_thung_hang')
+        data_root = os.path.join(base_dir, 'data')
+        os.makedirs(data_root, exist_ok=True)
+        self.dataset_dir = os.path.join(data_root, 'dataset_thung_hang')
         os.makedirs(self.dataset_dir, exist_ok=True)
         self.auto_capture_active = False
         self.auto_capture_target = 150

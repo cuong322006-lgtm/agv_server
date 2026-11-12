@@ -9,5 +9,9 @@ if not exist venv (
     call install.bat
 )
 call venv\Scripts\activate.bat
-python run_tunnel_sync.py
+if exist "src\run_tunnel_sync.py" (
+    python src\run_tunnel_sync.py
+) else (
+    python run_tunnel_sync.py
+)
 pause

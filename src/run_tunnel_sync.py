@@ -7,12 +7,18 @@ import urllib.request
 NTFY_URL = "https://ntfy.sh/cuong_agv_tunnel_2026_secret"
 CURRENT_TUNNEL_URL = ""
 
+def get_project_root():
+    d = os.path.dirname(os.path.abspath(__file__))
+    return os.path.dirname(d) if os.path.basename(d).lower() == "src" else d
+
 def publish_tunnel_domain(domain: str):
     global CURRENT_TUNNEL_URL
     CURRENT_TUNNEL_URL = f"https://{domain}"
     try:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        with open(os.path.join(base_dir, "current_tunnel_url.txt"), "w", encoding="utf-8") as f:
+        base_dir = get_project_root()
+        tools_dir = os.path.join(base_dir, "tools")
+        os.makedirs(tools_dir, exist_ok=True)
+        with open(os.path.join(tools_dir, "current_tunnel_url.txt"), "w", encoding="utf-8") as f:
             f.write(CURRENT_TUNNEL_URL)
     except Exception:
         pass
@@ -25,8 +31,10 @@ def publish_tunnel_domain(domain: str):
         print(f"[!] Khong the dong bo len ntfy: {e}")
 
 def main():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    cloudflared_path = os.path.join(base_dir, "cloudflared.exe")
+    base_dir = get_project_root()
+    cloudflared_path = os.path.join(base_dir, "tools", "cloudflared.exe")
+    if not os.path.exists(cloudflared_path):
+        cloudflared_path = os.path.join(base_dir, "cloudflared.exe")
     if not os.path.exists(cloudflared_path):
         cloudflared_path = "cloudflared.exe"
 
