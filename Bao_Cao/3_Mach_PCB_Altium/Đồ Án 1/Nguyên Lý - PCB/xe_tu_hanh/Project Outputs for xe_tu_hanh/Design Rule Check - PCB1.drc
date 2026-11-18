@@ -1,10 +1,12 @@
 Protel Design System Design Rule Check
-PCB File : E:\Stady\Ð? Án 1\Nguyên Lý - PCB\xe_tu_hanh\PCB1.PcbDoc
-Date     : 11/5/2026
-Time     : 4:02:53 AM
+PCB File : E:\agv_server\Bao_Cao\3_Mach_PCB_Altium\Ð? Án 1\Nguyên Lý - PCB\xe_tu_hanh\PCB1.PcbDoc
+Date     : 11/18/2026
+Time     : 10:25:32 PM
 
-Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
-Rule Violations :0
+Processing Rule : Clearance Constraint (Gap=0.35mm) (All),(All)
+   Violation between Clearance Constraint: (0.3mm < 0.35mm) Between Pad Free-MH4(5mm,85mm) on Multi-Layer And Track (2.159mm,78.74mm)(4.871mm,81.452mm) on Top Layer 
+   Violation between Clearance Constraint: (0.298mm < 0.35mm) Between Pad Free-MH4(5mm,85mm) on Multi-Layer And Track (4.871mm,81.452mm)(14.396mm,81.452mm) on Top Layer 
+Rule Violations :2
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
 Rule Violations :0
@@ -15,7 +17,7 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=0.254mm) (Max=2.5mm) (Preferred=0.3mm) (All)
+Processing Rule : Width Constraint (Min=0.5mm) (Max=2.5mm) (Preferred=2mm) (All)
 Rule Violations :0
 
 Processing Rule : Routing Topology Rule(Topology=Shortest) (All)
@@ -46,6 +48,6 @@ Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Al
 Rule Violations :0
 
 
-Violations Detected : 0
+Violations Detected : 2
 Waived Violations : 0
 Time Elapsed        : 00:00:00
