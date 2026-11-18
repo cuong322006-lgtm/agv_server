@@ -1,0 +1,12 @@
+Added Component: Designator=U?(MODULE_815)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/815/Adafruit+Industries/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Adafruit"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "815"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Non-Standard Adafruit"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/815/Adafruit+Industries/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U?(TB6612FNG)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Data Sheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.pololu.com/file/0J86/TB6612FNG.pdf"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Sheet1 Member=Component U? 815
+Added Member To Class: ClassName=Sheet1 Member=Component U? TB6612FNG

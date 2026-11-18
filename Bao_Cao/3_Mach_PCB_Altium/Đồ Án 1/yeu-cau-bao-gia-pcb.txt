@@ -1,0 +1,15 @@
+YÊU CẦU BÁO GIÁ — DATMACHINPCB.COM
+
+Loại yêu cầu: Mạch in PCB
+Cấu hình tham khảo: 2 lớp · 90 × 150 mm · 5 mạch
+Vật liệu & hoàn thiện: FR-4 · 1,6 mm · Xanh lá · 1 oz
+Chi phí tham khảo: 124.875 ₫ tiền diện tích. Chi phí thiết lập tùy đơn hàng.
+Người liên hệ: Hà Nghĩa Kiên Cường
+Điện thoại: 0339709292
+Email: cuong322006@gmail.com
+Lời nhắn: Bề mặt mạ thiếc chì (HASL with lead), test điện 100% (E-test)
+Tệp đính kèm: PCB_AGV_Mecanum.zip
+
+Vui lòng xác nhận cấu hình, chi phí và thời gian thực hiện.
+
+Mã yêu cầu: a07512f1-81b2-4ada-b500-9b166bf165e7

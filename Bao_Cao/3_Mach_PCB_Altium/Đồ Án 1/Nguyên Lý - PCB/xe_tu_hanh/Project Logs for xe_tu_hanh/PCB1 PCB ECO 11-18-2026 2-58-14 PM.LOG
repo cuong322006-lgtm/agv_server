@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND_Logic Pin=R2-1
+Change Component Footprint: Designator=R1 Old Footprint=R1/4W New Footprint=SM-2512
+Change Component Footprint: Designator=R2 Old Footprint=R1/4W New Footprint=SM-2512
+Change Component Comment : Designator=P2 Old Comment=Lida-x2 New Comment=AS5600
+Added Pin To Net: NetName=NetR1_2 Pin=R2-1
+Added Pin To Net: NetName=GND_Logic Pin=R2-2

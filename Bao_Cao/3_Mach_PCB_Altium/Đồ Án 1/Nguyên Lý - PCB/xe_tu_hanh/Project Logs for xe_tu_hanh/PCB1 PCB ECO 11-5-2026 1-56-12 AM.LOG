@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=M1.11 Pin=U2-6
+Removed Pin From Net: NetName=M1.10 Pin=U2-7
+Added Pin To Net: NetName=M1.10 Pin=U2-6
+Added Pin To Net: NetName=M1.11 Pin=U2-7
+Added Member To Class: ClassName=Sheet1 Member=Component HD6 Header 2

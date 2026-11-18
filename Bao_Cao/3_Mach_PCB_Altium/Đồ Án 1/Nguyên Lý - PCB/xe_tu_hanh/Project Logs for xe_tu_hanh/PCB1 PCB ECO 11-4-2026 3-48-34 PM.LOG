@@ -1,0 +1,170 @@
+Added Component: Designator=C?(CP1/2)
+Added Component: Designator=C?(CP1/2)
+Added Component: Designator=C?(CN1)
+Added Component: Designator=C?(CN1)
+Added Component: Designator=C?(CP1/2)
+Added Component: Designator=HD?(HED2)
+Add component (AddParameter): Name = "Value"; Value = "Header 2"; VariantName = "[No Variations]"
+Added Component: Designator=HD?(HED2)
+Add component (AddParameter): Name = "Value"; Value = "Header 2"; VariantName = "[No Variations]"
+Added Component: Designator=HD?(HED2)
+Add component (AddParameter): Name = "Value"; Value = "Header 2"; VariantName = "[No Variations]"
+Added Component: Designator=HD?(HED2)
+Add component (AddParameter): Name = "Value"; Value = "Header 2"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(jam3)
+Add component (AddParameter): Name = "Value"; Value = "Connector 3"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(jam3)
+Add component (AddParameter): Name = "Value"; Value = "Connector 3"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(jam5)
+Add component (AddParameter): Name = "Value"; Value = "Connector 5"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(jam3)
+Add component (AddParameter): Name = "Value"; Value = "Connector 3"; VariantName = "[No Variations]"
+Added Component: Designator=JP?(jam3)
+Add component (AddParameter): Name = "Value"; Value = "Connector 3"; VariantName = "[No Variations]"
+Added Component: Designator=PS?(CONV_MC00100)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/MC00100/YKS/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "YKS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "MC00100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/MC00100/YKS/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=PS?(CONV_MC00100)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/MC00100/YKS/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "YKS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "MC00100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/MC00100/YKS/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U?(TB6612FNG)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Data Sheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.pololu.com/file/0J86/TB6612FNG.pdf"; VariantName = "[No Variations]"
+Added Component: Designator=U?(XCVR_ESP32-S3-DEVKITC-1-N16R8V)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/ESP32-S3-DEVKITC-1-N16R8V/Espressif+Systems/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Espressif Systems"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "ESP32-S3-DEVKITC-1-N16R8V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/ESP32-S3-DEVKITC-1-N16R8V/Espressif+Systems/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U?(MODULE_815)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/815/Adafruit+Industries/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Adafruit"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "815"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "Non-Standard Adafruit"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/815/Adafruit+Industries/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U?(TB6612FNG)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Data Sheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.pololu.com/file/0J86/TB6612FNG.pdf"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+12 Pin=C?-1
+Added Pin To Net: NetName=+12 Pin=C?-1
+Added Pin To Net: NetName=+12 Pin=HD?-1
+Added Pin To Net: NetName=+12 Pin=PS?-IN+
+Added Pin To Net: NetName=+12 Pin=PS?-IN+
+Added Pin To Net: NetName=+12 Pin=U?-1
+Added Pin To Net: NetName=+12 Pin=U?-1
+Added Net: Name=+12
+Added Pin To Net: NetName=5v1 Pin=C?-1
+Added Pin To Net: NetName=5v1 Pin=C?-1
+Added Pin To Net: NetName=5v1 Pin=HD?-1
+Added Pin To Net: NetName=5v1 Pin=JP?-1
+Added Pin To Net: NetName=5v1 Pin=PS?-OUT+
+Added Pin To Net: NetName=5v1 Pin=U?-2
+Added Pin To Net: NetName=5v1 Pin=U?-2
+Added Pin To Net: NetName=5v1 Pin=U?-J1_21
+Added Net: Name=5v1
+Added Pin To Net: NetName=6v Pin=PS?-OUT+
+Added Pin To Net: NetName=6v Pin=U?-VCC_1
+Added Pin To Net: NetName=6v Pin=U?-VCC_2
+Added Net: Name=6v
+Added Pin To Net: NetName=GND_Logic Pin=C?-2
+Added Pin To Net: NetName=GND_Logic Pin=C?-2
+Added Pin To Net: NetName=GND_Logic Pin=HD?-2
+Added Pin To Net: NetName=GND_Logic Pin=JP?-5
+Added Pin To Net: NetName=GND_Logic Pin=PS?-OUT-
+Added Pin To Net: NetName=GND_Logic Pin=PS?-OUT-
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_1
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_2
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_3
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_4
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_5
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_6
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_7
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_8
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_9
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_10
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_11
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_12
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_13
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_14
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_15
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_16
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_17
+Added Pin To Net: NetName=GND_Logic Pin=U?-GND_18
+Added Pin To Net: NetName=GND_Logic Pin=U?-J1_22
+Added Net: Name=GND_Logic
+Added Pin To Net: NetName=GND_PWR Pin=C?-2
+Added Pin To Net: NetName=GND_PWR Pin=C?-2
+Added Pin To Net: NetName=GND_PWR Pin=HD?-2
+Added Pin To Net: NetName=GND_PWR Pin=PS?-IN-
+Added Pin To Net: NetName=GND_PWR Pin=PS?-IN-
+Added Pin To Net: NetName=GND_PWR Pin=U?-3
+Added Pin To Net: NetName=GND_PWR Pin=U?-3
+Added Pin To Net: NetName=GND_PWR Pin=U?-8
+Added Pin To Net: NetName=GND_PWR Pin=U?-9
+Added Net: Name=GND_PWR
+Added Pin To Net: NetName=M1.1 Pin=U?-13
+Added Pin To Net: NetName=M1.1 Pin=U?-J1_2
+Added Net: Name=M1.1
+Added Pin To Net: NetName=M1.2 Pin=U?-16
+Added Pin To Net: NetName=M1.2 Pin=U?-J3_10
+Added Net: Name=M1.2
+Added Pin To Net: NetName=M1.3 Pin=U?-4
+Added Pin To Net: NetName=M1.3 Pin=U?-J3_11
+Added Net: Name=M1.3
+Added Pin To Net: NetName=M1.4 Pin=U?-5
+Added Pin To Net: NetName=M1.4 Pin=U?-J3_12
+Added Net: Name=M1.4
+Added Pin To Net: NetName=M1.5+ Pin=HD?-1
+Added Pin To Net: NetName=M1.5+ Pin=U?-14
+Added Net: Name=M1.5+
+Added Pin To Net: NetName=M1.6- Pin=HD?-2
+Added Pin To Net: NetName=M1.6- Pin=U?-15
+Added Net: Name=M1.6-
+Added Pin To Net: NetName=M1.7 Pin=U?-10
+Added Pin To Net: NetName=M1.7 Pin=U?-J3_13
+Added Net: Name=M1.7
+Added Pin To Net: NetName=M1.8 Pin=U?-7
+Added Pin To Net: NetName=M1.8 Pin=U?-J1_14
+Added Net: Name=M1.8
+Added Pin To Net: NetName=M1.9 Pin=U?-6
+Added Pin To Net: NetName=M1.9 Pin=U?-J3_21
+Added Net: Name=M1.9
+Added Pin To Net: NetName=M1.10 Pin=U?-12
+Added Net: Name=M1.10
+Added Pin To Net: NetName=M1.11 Pin=U?-11
+Added Net: Name=M1.11
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_1
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_2
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_3
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_4
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_5
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_6
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_7
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_8
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_9
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_10
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_11
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_12
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_13
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_14
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_15
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_16
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_17
+Added Pin To Net: NetName=NetU?_V+_1 Pin=U?-V+_18
+Added Net: Name=NetU?_V+_1
+Added Class: Name=Sheet1
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2
+Added Rule: Name=Schematic Supply Nets_3
+Added Rule: Name=Schematic Supply Nets_4

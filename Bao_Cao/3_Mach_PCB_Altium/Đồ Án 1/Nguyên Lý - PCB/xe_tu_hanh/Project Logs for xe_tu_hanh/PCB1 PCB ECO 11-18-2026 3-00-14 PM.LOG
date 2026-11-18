@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NetR1_2 Pin=R2-1
+Removed Pin From Net: NetName=GND_Logic Pin=R2-2
+Change Component Footprint: Designator=R1 Old Footprint=SM-2512 New Footprint=R1/4W
+Change Component Footprint: Designator=R2 Old Footprint=SM-2512 New Footprint=R1/4W
+Added Pin To Net: NetName=GND_Logic Pin=R2-1
+Added Pin To Net: NetName=NetR1_2 Pin=R2-2

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=NetR1_2 Pin=R2-2
+Removed Pin From Net: NetName=HC-SR05.1 Pin=U3-J1_4
+Removed Pin From Net: NetName=NetR1_2 Pin=U3-J1_5
+Removed Pin From Net: NetName=LIDA-EN Pin=U3-J1_8
+Removed Pin From Net: NetName=LIDA-TX Pin=U3-J1_9
+Removed Pin From Net: NetName=SV1.2 Pin=U3-J1_12
+Removed Pin From Net: NetName=SV1.1 Pin=U3-J1_15
+Added Pin To Net: NetName=SV1.2 Pin=U3-J1_6
+Added Pin To Net: NetName=SV1.1 Pin=U3-J1_16
+Added Pin To Net: NetName=LIDA-TX Pin=U3-J1_17
+Added Pin To Net: NetName=LIDA-EN Pin=U3-J1_18
+Added Pin To Net: NetName=NetR1_2 Pin=U3-J1_19
+Added Pin To Net: NetName=HC-SR05.1 Pin=U3-J1_20

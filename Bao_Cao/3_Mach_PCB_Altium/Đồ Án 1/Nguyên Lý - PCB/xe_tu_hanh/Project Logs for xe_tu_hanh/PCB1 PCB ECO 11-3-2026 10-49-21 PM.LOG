@@ -1,0 +1,4 @@
+Added Component: Designator=U?(TB6612FNG)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Data Sheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.pololu.com/file/0J86/TB6612FNG.pdf"; VariantName = "[No Variations]"
+Added Class: Name=Sheet1
