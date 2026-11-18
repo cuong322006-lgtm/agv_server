@@ -1,188 +1,1148 @@
-<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Báo cáo Thiết kế Mạch và Hướng dẫn Đi dây PCB AGV</title>
-<style>
-body {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 13pt;
-    line-height: 1.5;
-    margin: 20mm 20mm 20mm 20mm;
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns="http://www.w3.org/TR/REC-html40"><head><meta http-equiv=Content-Type  content="text/html; charset=utf-8" ><meta name=ProgId  content=Word.Document ><meta name=Generator  content="Microsoft Word 14" ><meta name=Originator  content="Microsoft Word 14" ><link rel=File-List  href="Báo cáo Thiết kế Mạch và Hướng dẫn Đi dây PCB AGV.files/filelist.xml" ><title></title><!--[if gte mso 9]><xml><o:DocumentProperties><o:Author>cuong</o:Author><o:LastAuthor>Cường Kiên</o:LastAuthor><o:Revision>1</o:Revision><o:Pages>2</o:Pages><o:Characters>2513</o:Characters><o:Lines>1</o:Lines><o:Paragraphs>1</o:Paragraphs></o:DocumentProperties><o:CustomDocumentProperties><o:KSOTemplateDocerSaveRecord dt:dt="string" >eyJoZGlkIjoiMTY2ZTZlYzkyOTA1NTRjMGFjOTRmMDUxN2FkYWJkYTgiLCJ1c2VySWQiOiI4ODEzODgxMjc1MzEzIn0=</o:KSOTemplateDocerSaveRecord><o:KSOProductBuildVer dt:dt="string" >1033-12.1.0.29162</o:KSOProductBuildVer><o:ICV dt:dt="string" >0B2DDFCFB03A475B868159BC152ECEB3_12</o:ICV></o:CustomDocumentProperties></xml><![endif]--><!--[if gte mso 9]><xml><o:OfficeDocumentSettings></o:OfficeDocumentSettings></xml><![endif]--><!--[if gte mso 9]><xml><w:WordDocument><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery><w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery><w:DocumentKind>DocumentNotSpecified</w:DocumentKind><w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing><w:View>Web</w:View><w:Compatibility></w:Compatibility><w:Zoom>0</w:Zoom></w:WordDocument></xml><![endif]--><!--[if gte mso 9]><xml><w:LatentStyles DefLockedState="false"  DefUnhideWhenUsed="true"  DefSemiHidden="true"  DefQFormat="false"  DefPriority="99"  LatentStyleCount="260" >
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Normal" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="heading 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="heading 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toc 9" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Normal Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footnote text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="header" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footer" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="index heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  QFormat="true"  Name="caption" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="table of figures" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="envelope address" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="envelope return" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="footnote reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="line number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="page number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="endnote reference" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="endnote text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="table of authorities" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="macro" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="toa heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Bullet 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Number 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Title" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Closing" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Signature" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  UnhideWhenUsed="false"  QFormat="true"  Name="Default Paragraph Font" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="List Continue 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Message Header" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Subtitle" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Salutation" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Date" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text First Indent" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text First Indent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Note Heading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Body Text Indent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Block Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Hyperlink" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="FollowedHyperlink" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Strong" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  QFormat="true"  Name="Emphasis" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Document Map" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Plain Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="E-mail Signature" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Normal (Web)" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Acronym" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Address" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Cite" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Code" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Definition" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Keyboard" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Preformatted" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Sample" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Typewriter" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="HTML Variable" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  UnhideWhenUsed="false"  QFormat="true"  Name="Normal Table" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="annotation subject" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="No List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="1 / a / i" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="1 / 1.1 / 1.1.1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Article / Section" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Simple 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Classic 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Colorful 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Columns 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 7" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table List 8" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table 3D effects 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Contemporary" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Elegant" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Professional" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Subtle 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Subtle 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Web 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Balloon Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="0"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Table Theme" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Placeholder Text" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="No Spacing" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="List Paragraph" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Quote" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="99"  SemiHidden="false"  Name="Intense Quote" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 1" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 2" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 3" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 4" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 5" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="60"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Shading Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="61"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="62"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Light Grid Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="63"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="64"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Shading 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="65"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="66"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium List 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="67"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 1 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="68"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 2 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="69"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Medium Grid 3 Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="70"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Dark List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="71"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Shading Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="72"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful List Accent 6" ></w:LsdException>
+<w:LsdException Locked="false"  Priority="73"  SemiHidden="false"  UnhideWhenUsed="false"  Name="Colorful Grid Accent 6" ></w:LsdException>
+</w:LatentStyles></xml><![endif]--><style>
+@font-face{
+font-family:"Times New Roman";
 }
-h1 {
-    font-size: 18pt;
-    font-weight: bold;
-    color: #003366;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-h2 {
-    font-size: 15pt;
-    font-weight: bold;
-    color: #004080;
-    border-bottom: 2px solid #004080;
-    padding-bottom: 4px;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-h3 {
-    font-size: 13pt;
-    font-weight: bold;
-    color: #0059b3;
-    margin-top: 18px;
-    margin-bottom: 10px;
-}
-p, li {
-    text-align: justify;
-    font-size: 12.5pt;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 15px 0;
-    font-size: 11pt;
-}
-table, th, td {
-    border: 1px solid #4d4d4d;
-}
-th {
-    background-color: #003366;
-    color: #ffffff;
-    font-weight: bold;
-    padding: 8px 6px;
-    text-align: center;
-}
-td {
-    padding: 6px 8px;
-}
-tr:nth-child(even) {
-    background-color: #f2f7fb;
-}
-.highlight-box {
-    background-color: #eef6fc;
-    border-left: 5px solid #0059b3;
-    padding: 10px 15px;
-    margin: 15px 0;
-}
-.warning-box {
-    background-color: #fff4e5;
-    border-left: 5px solid #ff9900;
-    padding: 10px 15px;
-    margin: 15px 0;
-}
-.meta-info {
-    text-align: center;
-    font-style: italic;
-    color: #555555;
-    margin-bottom: 25px;
-}
-code {
-    font-family: Consolas, monospace;
-    background-color: #f0f0f0;
-    padding: 2px 4px;
-    font-size: 11pt;
-}
-pre {
-    background-color: #f8f9fa;
-    border: 1px solid #dcdcdc;
-    padding: 10px;
-    font-family: Consolas, monospace;
-    font-size: 10.5pt;
-    line-height: 1.3;
-}
-</style>
-</head>
-<body>
 
-<h1>BÁO CÁO THIẾT KẾ PHẦN CỨNG VÀ QUY TẮC ĐI DÂY PCB XE TỰ HÀNH AGV</h1>
-<div class="meta-info">
-    <b>Dự án:</b> Xe Tự Hành AGV 4 Bánh Mecanum - Tích hợp LiDAR SLAM & AI Vision<br>
-    <b>Vi điều khiển trung tâm:</b> ESP32-S3-DevKitC-1 (N16R8V) | <b>Phần mềm:</b> Altium Designer<br>
-    <b>Tiêu chuẩn chế tạo:</b> Mạch in 2 lớp (2-Layer FR4, 1.6mm, 1oz Đồng) | <b>Ngày cập nhật:</b> 05/11/2026
-</div>
+@font-face{
+font-family:"宋体";
+}
 
-<div class="highlight-box">
-<b>Tóm tắt:</b> Báo cáo đã cập nhật chuẩn xác 100% theo sơ đồ nguyên lý mới nhất của hệ thống AGV, bao gồm bảng chân kết nối mới của ESP32-S3 với 4 động cơ, PCA9685, Lidar, Siêu âm, mức điện áp nguồn VM 6V an toàn cho motor 3-6V và mã nguồn C++ khai báo chân sẵn sàng để nạp code.
-</div>
+@font-face{
+font-family:"SimSun";
+}
 
-<h2>PHẦN 1: BẢNG KẾT NỐI CHI TIẾT TOÀN BỘ LINH KIỆN (MỚI NHẤT)</h2>
+@font-face{
+font-family:"Wingdings";
+}
 
-<h3>1.1. Bảng sơ đồ chân vi điều khiển ESP32-S3 DevKitC-1 (U3)</h3>
-<table>
-  <tr><th>Chân Bo DevKit</th><th>Tên Pin / Net Label</th><th>Hướng tín hiệu</th><th>Kết nối linh kiện</th><th>Chức năng chi tiết</th></tr>
-  <tr><td><b>J1_1, J1_2</b></td><td>3V3 / M1.1</td><td>Nguồn ra</td><td>STBY của TB6612 #1, #2</td><td>Kéo CAO để kích hoạt 2 Driver động cơ</td></tr>
-  <tr><td><b>J1_6</b></td><td>GPIO6 / SV1.2</td><td>I/O (SDA)</td><td>SDA của PCA9685</td><td>Truyền dữ liệu I2C điều khiển 16 Servo</td></tr>
-  <tr><td><b>J1_16</b></td><td>GPIO10 / SV1.1</td><td>Output (SCL)</td><td>SCL của PCA9685</td><td>Xung nhịp I2C (400kHz)</td></tr>
-  <tr><td><b>J1_17</b></td><td>GPIO11 / LIDA-TX</td><td>Input (RX2)</td><td>TX của YDLidar X2</td><td>Nhận dữ liệu quét laser 360 độ</td></tr>
-  <tr><td><b>J1_18</b></td><td>GPIO12 / LIDA-EN</td><td>Output</td><td>M_EN của YDLidar X2</td><td>Bật / tắt motor quay mắt quét Lidar</td></tr>
-  <tr><td><b>J1_19</b></td><td>GPIO13</td><td>Input</td><td>Cầu phân áp trở (ECHO)</td><td>Nhận xung phản hồi HC-SR05 (3.3V an toàn)</td></tr>
-  <tr><td><b>J1_20</b></td><td>GPIO14 / HC-SR05.1</td><td>Output</td><td>TRIG của HC-SR05</td><td>Phát xung siêu âm 10us đo khoảng cách</td></tr>
-  <tr><td><b>J3_18</b></td><td>GPIO21 / M1.2</td><td>Output (PWM)</td><td>PWMA của TB6612 #1</td><td>Xung PWM tốc độ Động cơ 1 (Trước - Trái)</td></tr>
-  <tr><td><b>J3_16</b></td><td>GPIO48 / M1.3</td><td>Output (DIR)</td><td>AIN1 của TB6612 #1</td><td>Chiều quay Động cơ 1 (Trước - Trái)</td></tr>
-  <tr><td><b>J3_17</b></td><td>GPIO47 / M1.4</td><td>Output (DIR)</td><td>AIN2 của TB6612 #1</td><td>Chiều quay Động cơ 1 (Trước - Trái)</td></tr>
-  <tr><td><b>J3_12</b></td><td>GPIO36 / M1.7</td><td>Output (PWM)</td><td>PWMB của TB6612 #1</td><td>Xung PWM tốc độ Động cơ 2 (Trước - Phải) *</td></tr>
-  <tr><td><b>J3_15</b></td><td>GPIO45 / M1.8</td><td>Output (DIR)</td><td>BIN1 của TB6612 #1</td><td>Chiều quay Động cơ 2 (Trước - Phải)</td></tr>
-  <tr><td><b>J3_13</b></td><td>GPIO35 / M1.9</td><td>Output (DIR)</td><td>BIN2 của TB6612 #1</td><td>Chiều quay Động cơ 2 (Trước - Phải) *</td></tr>
-  <tr><td><b>J3_10</b></td><td>GPIO38 / M1.12</td><td>Output (PWM)</td><td>PWMA của TB6612 #2</td><td>Xung PWM tốc độ Động cơ 3 (Sau - Trái)</td></tr>
-  <tr><td><b>J3_8</b></td><td>GPIO40 / M1.13</td><td>Output (DIR)</td><td>AIN1 của TB6612 #2</td><td>Chiều quay Động cơ 3 (Sau - Trái)</td></tr>
-  <tr><td><b>J3_9</b></td><td>GPIO39 / M1.14</td><td>Output (DIR)</td><td>AIN2 của TB6612 #2</td><td>Chiều quay Động cơ 3 (Sau - Trái)</td></tr>
-  <tr><td><b>J3_5</b></td><td>GPIO2 / M1.17</td><td>Output (PWM)</td><td>PWMB của TB6612 #2</td><td>Xung PWM tốc độ Động cơ 4 (Sau - Phải)</td></tr>
-  <tr><td><b>J3_7</b></td><td>GPIO41 / M1.18</td><td>Output (DIR)</td><td>BIN1 của TB6612 #2</td><td>Chiều quay Động cơ 4 (Sau - Phải)</td></tr>
-  <tr><td><b>J3_6</b></td><td>GPIO42 / M1.19</td><td>Output (DIR)</td><td>BIN2 của TB6612 #2</td><td>Chiều quay Động cơ 4 (Sau - Phải)</td></tr>
-  <tr><td><b>J1_21</b></td><td>5V0 / 5v1</td><td>Nguồn vào</td><td>OUT+ Buck LM2596 #1</td><td>Cấp nguồn 5.1V nuôi toàn bộ vi điều khiển</td></tr>
-  <tr><td><b>J1_22..J3_22</b></td><td>GND</td><td>Nguồn âm</td><td>GND_Logic</td><td>Nối chung mass hệ thống logic</td></tr>
+@font-face{
+font-family:"Consolas";
+}
+
+@font-face{
+font-family:"Calibri";
+}
+
+p.MsoNormal{
+mso-style-name:Normal;
+mso-style-parent:"";
+margin:0pt;
+margin-bottom:.0001pt;
+text-align:left;
+font-family:Calibri;
+mso-fareast-font-family:SimSun;
+mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;
+}
+
+h1{
+mso-style-name:"Heading 1";
+mso-style-next:Normal;
+margin-top:5.0000pt;
+margin-bottom:3.0000pt;
+mso-margin-top-alt:auto;
+text-align:center;
+font-family:SimSun;
+color:rgb(0,51,102);
+font-weight:bold;
+text-transform:uppercase;
+font-size:18.0000pt;
+mso-font-kerning:22.0000pt;
+}
+
+h2{
+mso-style-name:"Heading 2";
+mso-style-noshow:yes;
+mso-style-next:Normal;
+margin-top:15.0000pt;
+margin-bottom:9.0000pt;
+border-bottom:1.5000pt solid rgb(0,64,128);
+mso-border-bottom-alt:1.5000pt solid rgb(0,64,128);
+padding:0pt 0pt 2pt 0pt ;
+text-align:left;
+font-family:SimSun;
+color:rgb(0,64,128);
+font-weight:bold;
+font-size:15.0000pt;
+}
+
+h3{
+mso-style-name:"Heading 3";
+mso-style-noshow:yes;
+mso-style-next:Normal;
+margin-top:10.8000pt;
+margin-bottom:6.0000pt;
+text-align:left;
+font-family:SimSun;
+color:rgb(0,89,179);
+font-weight:bold;
+font-size:13.0000pt;
+}
+
+h4{
+mso-style-name:"Heading 4";
+mso-style-noshow:yes;
+mso-style-next:Normal;
+margin-top:5.0000pt;
+margin-bottom:5.0000pt;
+mso-margin-top-alt:auto;
+mso-margin-bottom-alt:auto;
+text-align:left;
+font-family:SimSun;
+font-weight:bold;
+font-size:12.0000pt;
+}
+
+h5{
+mso-style-name:"Heading 5";
+mso-style-noshow:yes;
+mso-style-next:Normal;
+margin-top:5.0000pt;
+margin-bottom:5.0000pt;
+mso-margin-top-alt:auto;
+mso-margin-bottom-alt:auto;
+text-align:left;
+font-family:SimSun;
+font-weight:bold;
+font-size:10.0000pt;
+}
+
+h6{
+mso-style-name:"Heading 6";
+mso-style-noshow:yes;
+mso-style-next:Normal;
+margin-top:5.0000pt;
+margin-bottom:5.0000pt;
+mso-margin-top-alt:auto;
+mso-margin-bottom-alt:auto;
+text-align:left;
+font-family:SimSun;
+font-weight:bold;
+font-size:7.5000pt;
+}
+
+span.10{
+font-family:'Times New Roman';
+}
+
+span.15{
+font-family:Consolas;
+font-size:11.0000pt;
+background:rgb(240,240,240);
+mso-shading:rgb(240,240,240);
+}
+
+p.16{
+mso-style-name:highlight-box;
+margin-top:9.0000pt;
+margin-right:0.0000pt;
+margin-bottom:9.0000pt;
+margin-left:0.0000pt;
+border-left:3.0000pt solid rgb(0,89,179);
+mso-border-left-alt:3.0000pt solid rgb(0,89,179);
+padding:0pt 0pt 0pt 9pt ;
+text-align:left;
+background:rgb(238,246,252);
+font-family:Calibri;
+mso-fareast-font-family:SimSun;
+mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;
+}
+
+p.pre{
+mso-style-name:"HTML Preformatted";
+margin:0pt;
+margin-bottom:.0001pt;
+border-top:1.0000pt solid rgb(220,220,220);
+mso-border-top-alt:0.5000pt solid rgb(220,220,220);
+border-right:1.0000pt solid rgb(220,220,220);
+mso-border-right-alt:0.5000pt solid rgb(220,220,220);
+border-bottom:1.0000pt solid rgb(220,220,220);
+mso-border-bottom-alt:0.5000pt solid rgb(220,220,220);
+border-left:1.0000pt solid rgb(220,220,220);
+mso-border-left-alt:0.5000pt solid rgb(220,220,220);
+padding:6pt 6pt 6pt 6pt ;
+tab-stops:left blank 45.8000pt left blank 91.6000pt left blank 137.4000pt left blank 183.2000pt left blank 229.0000pt left blank 274.8000pt left blank 320.6000pt left blank 366.4000pt left blank 412.2000pt left blank 458.0000pt left blank 503.8000pt left blank 549.6000pt left blank 595.4000pt left blank 641.2000pt left blank 687.0000pt left blank 732.8000pt ;
+text-align:left;
+mso-line-height-alt:12pt;
+background:rgb(248,249,250);
+font-family:Consolas;
+font-size:10.5000pt;
+}
+
+p.p{
+mso-style-name:"Normal \(Web\)";
+margin-top:5.0000pt;
+margin-right:0.0000pt;
+margin-bottom:5.0000pt;
+margin-left:0.0000pt;
+mso-margin-top-alt:auto;
+mso-margin-bottom-alt:auto;
+text-align:justify;
+text-justify:inter-ideograph;
+font-family:Calibri;
+mso-fareast-font-family:SimSun;
+mso-bidi-font-family:'Times New Roman';
+font-size:12.5000pt;
+}
+
+p.19{
+mso-style-name:warning-box;
+margin-top:9.0000pt;
+margin-right:0.0000pt;
+margin-bottom:9.0000pt;
+margin-left:0.0000pt;
+border-left:3.0000pt solid rgb(255,153,0);
+mso-border-left-alt:3.0000pt solid rgb(255,153,0);
+padding:0pt 0pt 0pt 9pt ;
+text-align:left;
+background:rgb(255,244,229);
+font-family:Calibri;
+mso-fareast-font-family:SimSun;
+mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;
+}
+
+p.20{
+mso-style-name:meta-info;
+margin-bottom:15.0000pt;
+text-align:center;
+font-family:Calibri;
+mso-fareast-font-family:SimSun;
+mso-bidi-font-family:'Times New Roman';
+color:rgb(85,85,85);
+font-style:italic;
+font-size:12.0000pt;
+}
+
+span.msoIns{
+mso-style-type:export-only;
+mso-style-name:"";
+text-decoration:underline;
+text-underline:single;
+color:blue;
+}
+
+span.msoDel{
+mso-style-type:export-only;
+mso-style-name:"";
+text-decoration:line-through;
+color:red;
+}
+
+table.MsoNormalTable{
+mso-style-name:"Table Normal";
+mso-style-parent:"";
+mso-style-noshow:yes;
+mso-tstyle-rowband-size:0;
+mso-tstyle-colband-size:0;
+mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt;
+mso-para-margin:0pt;
+mso-para-margin-bottom:.0001pt;
+mso-pagination:widow-orphan;
+font-family:'Times New Roman';
+font-size:10.0000pt;
+mso-ansi-language:#0400;
+mso-fareast-language:#0400;
+mso-bidi-language:#0400;
+}
+@page{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;}@page Section0{
+size:595.3000pt 841.9500pt;
+mso-header-margin:42.5500pt;
+mso-footer-margin:49.6000pt;
+}
+div.Section0{page:Section0;}</style></head><body style="tab-interval:21pt;" ><!--StartFragment--><div class="Section0" ><h1 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,51,102);font-weight:bold;text-transform:uppercase;
+font-size:12.0000pt;mso-font-kerning:22.0000pt;" >B&#193;O C&#193;O THI&#7870;T K&#7870; PH&#7846;N C&#7912;NG V&#192; QUY T&#7854;C &#272;I D&#194;Y PCB XE T&#7920; H&#192;NH AGV</span></b><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,51,102);font-weight:bold;text-transform:uppercase;
+font-size:12.0000pt;mso-font-kerning:22.0000pt;" ><o:p></o:p></span></b></h1><p class=MsoNormal  align=center  style="margin-top:56.7500pt;margin-right:56.7500pt;margin-bottom:15.0000pt;
+margin-left:56.7500pt;mso-pagination:widow-orphan;text-align:center;
+mso-line-height-alt:12pt;" ><b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-weight:bold;font-style:italic;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >D&#7921; &#225;n:</span></i></b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >&nbsp;Xe T&#7921; H&#224;nh AGV 4 B&#225;nh Mecanum - T&#237;ch h&#7907;p LiDAR SLAM & AI Vision</span></i><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><br></span></i><b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-weight:bold;font-style:italic;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Vi &#273;i&#7873;u khi&#7875;n trung t&#226;m:</span></i></b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >&nbsp;ESP32-S3-DevKitC-1 (N16R8V) | </span></i><b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-weight:bold;font-style:italic;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ph&#7847;n m&#7873;m:</span></i></b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >&nbsp;Altium Designer</span></i><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><br></span></i><b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-weight:bold;font-style:italic;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ti&#234;u chu&#7849;n ch&#7871; t&#7841;o:</span></i></b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >&nbsp;M&#7841;ch in 2 l&#7899;p (2-Layer FR4, 1.6mm, 1oz &#272;&#7891;ng) | </span></i><b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-weight:bold;font-style:italic;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ng&#224;y c&#7853;p nh&#7853;t:</span></i></b><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >&nbsp;05/11/2026 </span></i><i><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(85,85,85);font-style:italic;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></i></p><p class=MsoNormal  style="margin-top:9.0000pt;margin-right:0.0000pt;margin-bottom:9.0000pt;
+margin-left:0.0000pt;border-left:3.0000pt solid rgb(0,89,179);mso-border-left-alt:3.0000pt solid rgb(0,89,179);
+padding:0pt 0pt 0pt 9pt ;mso-pagination:widow-orphan;text-align:left;
+mso-line-height-alt:12pt;background:rgb(238,246,252);" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;
+background:rgb(238,246,252);mso-shading:rgb(238,246,252);" >T&#243;m t&#7855;t:</span></b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;background:rgb(238,246,252);
+mso-shading:rgb(238,246,252);" >&nbsp;B&#225;o c&#225;o &#273;&#227; c&#7853;p nh&#7853;t chu&#7849;n x&#225;c 100% theo s&#417; &#273;&#7891; nguy&#234;n l&#253; m&#7899;i nh&#7845;t c&#7911;a h&#7879; th&#7889;ng AGV, bao g&#7891;m b&#7843;ng ch&#226;n k&#7871;t n&#7889;i m&#7899;i c&#7911;a ESP32-S3 v&#7899;i 4 &#273;&#7897;ng c&#417;, PCA9685, Lidar, Si&#234;u &#226;m, m&#7913;c &#273;i&#7879;n &#225;p ngu&#7891;n VM 6V an to&#224;n cho motor 3-6V v&#224; m&#227; ngu&#7891;n C++ khai b&#225;o ch&#226;n s&#7861;n s&#224;ng &#273;&#7875; n&#7841;p code. </span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><h2 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,64,128);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PH&#7846;N 1: B&#7842;NG K&#7870;T N&#7888;I CHI TI&#7870;T TO&#192;N B&#7896; LINH KI&#7878;N (M&#7898;I NH&#7844;T)</span></b><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,64,128);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></h2><h3 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,89,179);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >1.1. B&#7843;ng s&#417; &#273;&#7891; ch&#226;n vi &#273;i&#7873;u khi&#7875;n ESP32-S3 DevKitC-1 (U3)</span></b><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,89,179);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></h3><table class=MsoNormalTable  border=1  cellspacing=0  style="border-collapse:collapse;width:100.0000%;margin-left:0.9000pt;
+border:none;mso-border-left-alt:0.5000pt solid rgb(77,77,77);mso-border-top-alt:0.5000pt solid rgb(77,77,77);
+mso-border-right-alt:0.5000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);mso-padding-alt:0.7500pt 0.7500pt 0.7500pt 0.7500pt ;" ><tr><td valign=center  style="padding:6.0000pt 4.5000pt 6.0000pt 4.5000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:1.0000pt solid rgb(77,77,77);
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);
+background:rgb(0,51,102);" ><p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ch&#226;n Bo DevKit</span></b><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></p></td><td valign=center  style="padding:6.0000pt 4.5000pt 6.0000pt 4.5000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:1.0000pt solid rgb(77,77,77);
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);
+background:rgb(0,51,102);" ><p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >T&#234;n Pin / Net Label</span></b><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></p></td><td valign=center  style="padding:6.0000pt 4.5000pt 6.0000pt 4.5000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:1.0000pt solid rgb(77,77,77);
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);
+background:rgb(0,51,102);" ><p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >H&#432;&#7899;ng t&#237;n hi&#7879;u</span></b><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></p></td><td valign=center  style="padding:6.0000pt 4.5000pt 6.0000pt 4.5000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:1.0000pt solid rgb(77,77,77);
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);
+background:rgb(0,51,102);" ><p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >K&#7871;t n&#7889;i linh ki&#7879;n</span></b><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></p></td><td valign=center  style="padding:6.0000pt 4.5000pt 6.0000pt 4.5000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:1.0000pt solid rgb(77,77,77);
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);
+background:rgb(0,51,102);" ><p class=MsoNormal  align=center  style="mso-pagination:widow-orphan;text-align:center;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ch&#7913;c n&#259;ng chi ti&#7871;t</span></b><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;color:rgb(255,255,255);
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_1, J1_2</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >3V3 / M1.1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Ngu&#7891;n ra</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >STBY c&#7911;a TB6612 #1, #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >K&#233;o CAO &#273;&#7875; k&#237;ch ho&#7841;t 2 Driver &#273;&#7897;ng c&#417;</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_6</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO6 / SV1.2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >I/O (SDA)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >SDA c&#7911;a PCA9685</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Truy&#7873;n d&#7919; li&#7879;u I2C &#273;i&#7873;u khi&#7875;n 16 Servo</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_16</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO10 / SV1.1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (SCL)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >SCL c&#7911;a PCA9685</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Xung nh&#7883;p I2C (400kHz)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_17</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO11 / LIDA-TX</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Input (RX2)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >TX c&#7911;a YDLidar X2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Nh&#7853;n d&#7919; li&#7879;u qu&#233;t laser 360 &#273;&#7897;</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_18</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO12 / LIDA-EN</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >M_EN c&#7911;a YDLidar X2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >B&#7853;t / t&#7855;t motor quay m&#7855;t qu&#233;t Lidar</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_19</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO13</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Input</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >C&#7847;u ph&#226;n &#225;p tr&#7903; (ECHO)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Nh&#7853;n xung ph&#7843;n h&#7891;i HC-SR05 (3.3V an to&#224;n)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_20</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO14 / HC-SR05.1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >TRIG c&#7911;a HC-SR05</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Ph&#225;t xung si&#234;u &#226;m 10us &#273;o kho&#7843;ng c&#225;ch</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_18</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO21 / M1.2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (PWM)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PWMA c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Xung PWM t&#7889;c &#273;&#7897; &#272;&#7897;ng c&#417; 1 (Tr&#432;&#7899;c - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_16</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO48 / M1.3</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >AIN1 c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 1 (Tr&#432;&#7899;c - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_17</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO47 / M1.4</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >AIN2 c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 1 (Tr&#432;&#7899;c - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_12</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO36 / M1.7</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (PWM)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PWMB c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Xung PWM t&#7889;c &#273;&#7897; &#272;&#7897;ng c&#417; 2 (Tr&#432;&#7899;c - Ph&#7843;i) *</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_15</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO45 / M1.8</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >BIN1 c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 2 (Tr&#432;&#7899;c - Ph&#7843;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_13</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO35 / M1.9</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >BIN2 c&#7911;a TB6612 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 2 (Tr&#432;&#7899;c - Ph&#7843;i) *</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_10</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO38 / M1.12</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (PWM)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PWMA c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Xung PWM t&#7889;c &#273;&#7897; &#272;&#7897;ng c&#417; 3 (Sau - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_8</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO40 / M1.13</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >AIN1 c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 3 (Sau - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_9</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO39 / M1.14</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >AIN2 c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 3 (Sau - Tr&#225;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_5</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO2 / M1.17</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (PWM)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PWMB c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Xung PWM t&#7889;c &#273;&#7897; &#272;&#7897;ng c&#417; 4 (Sau - Ph&#7843;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_7</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO41 / M1.18</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >BIN1 c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 4 (Sau - Ph&#7843;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J3_6</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GPIO42 / M1.19</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Output (DIR)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >BIN2 c&#7911;a TB6612 #2</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Chi&#7873;u quay &#272;&#7897;ng c&#417; 4 (Sau - Ph&#7843;i)</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_21</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >5V0 / 5v1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Ngu&#7891;n v&#224;o</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >OUT+ Buck LM2596 #1</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >C&#7845;p ngu&#7891;n 5.1V nu&#244;i to&#224;n b&#7897; vi &#273;i&#7873;u khi&#7875;n</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr><tr><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:1.0000pt solid rgb(77,77,77);mso-border-left-alt:0.5000pt solid rgb(77,77,77);
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-weight:bold;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >J1_22..J3_22</span></b><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GND</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >Ngu&#7891;n &#226;m</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >GND_Logic</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td><td valign=center  style="padding:4.5000pt 6.0000pt 4.5000pt 6.0000pt ;border-left:none;mso-border-left-alt:none;
+border-right:1.0000pt solid rgb(77,77,77);mso-border-right-alt:0.5000pt solid rgb(77,77,77);border-top:none;
+mso-border-top-alt:0.5000pt solid rgb(77,77,77);border-bottom:1.0000pt solid rgb(77,77,77);mso-border-bottom-alt:0.5000pt solid rgb(77,77,77);" ><p class=MsoNormal  style="mso-pagination:widow-orphan;text-align:left;mso-line-height-alt:12pt;" ><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >N&#7889;i chung mass h&#7879; th&#7889;ng logic</span><span style="font-family:'Times New Roman';mso-fareast-font-family:SimSun;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></td></tr></table><p class=MsoNormal  style="margin-top:9.0000pt;margin-right:0.0000pt;margin-bottom:9.0000pt;
+margin-left:0.0000pt;border-left:3.0000pt solid rgb(255,153,0);mso-border-left-alt:3.0000pt solid rgb(255,153,0);
+padding:0pt 0pt 0pt 9pt ;mso-pagination:widow-orphan;text-align:left;
+mso-line-height-alt:12pt;background:rgb(255,244,229);" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;
+background:rgb(255,244,229);mso-shading:rgb(255,244,229);" >* L&#432;u &#253; c&#7921;c k&#7923; quan tr&#7885;ng v&#7873; GPIO35 v&#224; GPIO36:</span></b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;background:rgb(255,244,229);
+mso-shading:rgb(255,244,229);" >&nbsp;Tr&#234;n d&#242;ng chip ESP32-S3 N16R8, hai ch&#226;n n&#224;y c&#243; th&#7875; n&#7889;i n&#7897;i b&#7897; v&#7899;i b&#7897; nh&#7899; Octal PSRAM. Khi l&#7853;p tr&#236;nh tr&#234;n Arduino IDE, b&#7841;n </span><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;
+background:rgb(255,244,229);mso-shading:rgb(255,244,229);" >b&#7855;t bu&#7897;c ph&#7843;i v&#224;o Tools -&gt; PSRAM -&gt; Ch&#7885;n Disabled (T&#7855;t PSRAM)</span></b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;background:rgb(255,244,229);
+mso-shading:rgb(255,244,229);" >&nbsp;&#273;&#7875; gi&#7843;i ph&#243;ng ho&#224;n to&#224;n 2 ch&#226;n n&#224;y &#273;i&#7873;u khi&#7875;n &#272;&#7897;ng c&#417; 2 m&#224; kh&#244;ng b&#7883; treo chip! </span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><h3 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,89,179);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >1.2. B&#7843;ng k&#7871;t n&#7889;i Driver TB6612 #1 (C&#7847;u Tr&#432;&#7899;c M1, M2) v&#224; TB6612 #2 (C&#7847;u Sau M3, M4)</span></b><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,89,179);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></h3><p class=p  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >Ngu&#7891;n nu&#244;i &#273;&#7897;ng c&#417;:</span></b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >&nbsp;Ch&#226;n </span><span class="15"  style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;background:rgb(240,240,240);mso-shading:rgb(240,240,240);" >VM</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >&nbsp;c&#7911;a c&#7843; 2 chip TB6612 &#273;&#432;&#7907;c n&#7889;i v&#224;o ngu&#7891;n </span><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;" >6V</span></b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >&nbsp;(ng&#245; ra Buck 2). &#272;i&#7873;u n&#224;y gi&#250;p b&#7843;o v&#7879; an to&#224;n tuy&#7879;t &#273;&#7889;i cho 4 &#273;&#7897;ng c&#417; 3-6V c&#7911;a b&#7841;n, kh&#244;ng lo b&#7883; ch&#225;y khi ch&#7841;y l&#226;u!</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p>
+<h3 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;"><b><span style="font-family:'Times New Roman';color:rgb(0,89,179);font-weight:bold;font-size:12.0000pt;">1.3. [MỚI BỔ SUNG] Bảng kết nối Cảm biến Góc Từ 360° AS5600 (Header P2 - 4 Chân 2.54mm)</span></b></h3>
+<p class=p style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;"><span style="font-family:'Times New Roman';font-size:12.0000pt;"><b>Vị trí đặt trên Schematic &amp; PCB (Altium Designer):</b> Thêm 01 linh kiện <b>Header 4-Pin (2.54mm)</b> đặt tên là <b>P2 (AS5600)</b> ngay ở cạnh trên bo mạch (sát bên cạnh Header <b>P1 - YDLidar X2</b> và đầu trên của <b>PCA9685 - U1</b>) để đi dây bus I2C ngắn nhất:</span></p>
+<table class=MsoNormalTable border=1 cellspacing=0 style="border-collapse:collapse;width:100.0000%;border:1.0000pt solid rgb(77,77,77);">
+<tr>
+<td style="padding:5pt;background:rgb(230,242,255);font-weight:bold;">Chân Header P2 (PCB)</td>
+<td style="padding:5pt;background:rgb(230,242,255);font-weight:bold;">Chân trên Module AS5600</td>
+<td style="padding:5pt;background:rgb(230,242,255);font-weight:bold;">Tên Net trên Schematic</td>
+<td style="padding:5pt;background:rgb(230,242,255);font-weight:bold;">Kết nối về ESP32-S3 / PCA9685</td>
+<td style="padding:5pt;background:rgb(230,242,255);font-weight:bold;">Điện áp &amp; Quy tắc đi dây PCB</td>
+</tr>
+<tr>
+<td style="padding:5pt;"><b>Pin 1</b></td>
+<td style="padding:5pt;"><b>VCC</b></td>
+<td style="padding:5pt;"><b>M1.1 (3V3)</b></td>
+<td style="padding:5pt;">Chân <b>3V3 (J1_1 / J1_2)</b> của ESP32-S3</td>
+<td style="padding:5pt;">Nguồn 3.3V DC chuẩn logic I2C (Độ rộng dây: 0.5mm)</td>
+</tr>
+<tr>
+<td style="padding:5pt;"><b>Pin 2</b></td>
+<td style="padding:5pt;"><b>GND + DIR</b> (Hàn nối tắt DIR vào GND trên bo AS5600)</td>
+<td style="padding:5pt;"><b>GND_Logic</b></td>
+<td style="padding:5pt;">Mass chung hệ thống logic (GND)</td>
+<td style="padding:5pt;">0V (Phủ đồng Polygon Pour GND_Logic trực tiếp)</td>
+</tr>
+<tr>
+<td style="padding:5pt;"><b>Pin 3</b></td>
+<td style="padding:5pt;"><b>SCL</b></td>
+<td style="padding:5pt;"><b>SV1.1</b></td>
+<td style="padding:5pt;">Nối chung <b>GPIO10 (J1_16)</b> &amp; chân SCL_1 của PCA9685</td>
+<td style="padding:5pt;">Xung nhịp I2C 400kHz (Độ rộng dây: 0.3mm - 0.4mm)</td>
+</tr>
+<tr>
+<td style="padding:5pt;"><b>Pin 4</b></td>
+<td style="padding:5pt;"><b>SDA</b></td>
+<td style="padding:5pt;"><b>SV1.2</b></td>
+<td style="padding:5pt;">Nối chung <b>GPIO6 (J1_6)</b> &amp; chân SDA_1 của PCA9685</td>
+<td style="padding:5pt;">Dữ liệu I2C (Địa chỉ AS5600 = 0x36, PCA9685 = 0x40)</td>
+</tr>
 </table>
-
-<div class="warning-box">
-<b>* Lưu ý cực kỳ quan trọng về GPIO35 và GPIO36:</b> Trên dòng chip ESP32-S3 N16R8, hai chân này có thể nối nội bộ với bộ nhớ Octal PSRAM. Khi lập trình trên Arduino IDE, bạn <b>bắt buộc phải vào Tools -> PSRAM -> Chọn Disabled (Tắt PSRAM)</b> để giải phóng hoàn toàn 2 chân này điều khiển Động cơ 2 mà không bị treo chip!
-</div>
-
-<h3>1.2. Bảng kết nối Driver TB6612 #1 (Cầu Trước M1, M2) và TB6612 #2 (Cầu Sau M3, M4)</h3>
-<p><b>Nguồn nuôi động cơ:</b> Chân <code>VM</code> của cả 2 chip TB6612 được nối vào nguồn <b>6V</b> (ngõ ra Buck 2). Điều này giúp bảo vệ an toàn tuyệt đối cho 4 động cơ 3-6V của bạn, không lo bị cháy khi chạy lâu!</p>
-
-<h2>PHẦN 2: FILE KHAI BÁO CHÂN C++ (SẴN SÀNG LẬP TRÌNH)</h2>
-<pre>
-// ==========================================
-// 1. ĐỘNG CƠ CẦU TRƯỚC (DRIVER TB6612 #1)
-// ==========================================
-#define M1_PWM_PIN    21    // Động cơ 1 (Trước-Trái) - Xung PWM
-#define M1_IN1_PIN    48    // Động cơ 1 - Chiều quay AIN1
-#define M1_IN2_PIN    47    // Động cơ 1 - Chiều quay AIN2
-
-#define M2_PWM_PIN    36    // Động cơ 2 (Trước-Phải) - Xung PWM (Lưu ý: Tắt PSRAM)
-#define M2_IN1_PIN    45    // Động cơ 2 - Chiều quay BIN1
-#define M2_IN2_PIN    35    // Động cơ 2 - Chiều quay BIN2 (Lưu ý: Tắt PSRAM)
-
-// ==========================================
-// 2. ĐỘNG CƠ CẦU SAU (DRIVER TB6612 #2)
-// ==========================================
-#define M3_PWM_PIN    38    // Động cơ 3 (Sau-Trái) - Xung PWM
-#define M3_IN1_PIN    40    // Động cơ 3 - Chiều quay AIN1
-#define M3_IN2_PIN    39    // Động cơ 3 - Chiều quay AIN2
-
-#define M4_PWM_PIN    2     // Động cơ 4 (Sau-Phải) - Xung PWM
-#define M4_IN1_PIN    41    // Động cơ 4 - Chiều quay BIN1
-#define M4_IN2_PIN    42    // Động cơ 4 - Chiều quay BIN2
-
-// ==========================================
-// 3. I2C ĐIỀU KHIỂN 16 SERVO (PCA9685)
-// ==========================================
-#define I2C_SDA_PIN   6     // Chân dữ liệu SDA
-#define I2C_SCL_PIN   10    // Chân xung nhịp SCL
-
-// ==========================================
-// 4. MẮT QUÉT 2D LIDAR (YDLIDAR X2)
-// ==========================================
-#define LIDAR_RX_PIN  11    // Nhận dữ liệu PointCloud từ Lidar TX
-#define LIDAR_EN_PIN  12    // Bật / tắt motor quay quét
-
-// ==========================================
-// 5. CẢM BIẾN SIÊU ÂM (HC-SR05)
-// ==========================================
-#define SONAR_TRIG_PIN 14   // Chân phát xung Trigger
-#define SONAR_ECHO_PIN 13   // Chân nhận xung Echo (qua cầu phân áp 1k:2k)
-</pre>
-
-</body>
-</html>
+<h2 style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,64,128);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" >PH&#7846;N 2: FILE KHAI B&#193;O CH&#194;N C++ (S&#7860;N S&#192;NG L&#7852;P TR&#204;NH)</span></b><b><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:SimSun;
+color:rgb(0,64,128);font-weight:bold;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;" ><o:p></o:p></span></b></h2><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// 1. &#272;&#7896;NG C&#416; C&#7846;U TR&#431;&#7898;C (DRIVER TB6612 #1)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M1_PWM_PIN &nbsp;&nbsp;&nbsp;21 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 1 (Tr&#432;&#7899;c-Tr&#225;i) - Xung PWM</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M1_IN1_PIN &nbsp;&nbsp;&nbsp;48 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 1 - Chi&#7873;u quay AIN1</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M1_IN2_PIN &nbsp;&nbsp;&nbsp;47 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 1 - Chi&#7873;u quay AIN2</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M2_PWM_PIN &nbsp;&nbsp;&nbsp;36 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 2 (Tr&#432;&#7899;c-Ph&#7843;i) - Xung PWM (L&#432;u &#253;: T&#7855;t PSRAM)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M2_IN1_PIN &nbsp;&nbsp;&nbsp;45 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 2 - Chi&#7873;u quay BIN1</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M2_IN2_PIN &nbsp;&nbsp;&nbsp;35 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 2 - Chi&#7873;u quay BIN2 (L&#432;u &#253;: T&#7855;t PSRAM)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// 2. &#272;&#7896;NG C&#416; C&#7846;U SAU (DRIVER TB6612 #2)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M3_PWM_PIN &nbsp;&nbsp;&nbsp;38 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 3 (Sau-Tr&#225;i) - Xung PWM</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M3_IN1_PIN &nbsp;&nbsp;&nbsp;40 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 3 - Chi&#7873;u quay AIN1</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M3_IN2_PIN &nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 3 - Chi&#7873;u quay AIN2</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M4_PWM_PIN &nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 4 (Sau-Ph&#7843;i) - Xung PWM</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M4_IN1_PIN &nbsp;&nbsp;&nbsp;41 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 4 - Chi&#7873;u quay BIN1</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define M4_IN2_PIN &nbsp;&nbsp;&nbsp;42 &nbsp;&nbsp;&nbsp;// &#272;&#7897;ng c&#417; 4 - Chi&#7873;u quay BIN2</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// 3. I2C &#272;I&#7872;U KHI&#7874;N 16 SERVO (PCA9685)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define I2C_SDA_PIN &nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;// Ch&#226;n d&#7919; li&#7879;u SDA</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define I2C_SCL_PIN &nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;// Ch&#226;n xung nh&#7883;p SCL</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// 4. M&#7854;T QU&#201;T 2D LIDAR (YDLIDAR X2)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define LIDAR_RX_PIN &nbsp;11 &nbsp;&nbsp;&nbsp;// Nh&#7853;n d&#7919; li&#7879;u PointCloud t&#7915; Lidar TX</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define LIDAR_EN_PIN &nbsp;12 &nbsp;&nbsp;&nbsp;// B&#7853;t / t&#7855;t motor quay qu&#233;t</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p>&nbsp;</o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// 5. C&#7842;M BI&#7870;N SI&#202;U &#194;M (HC-SR05)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >// ==========================================</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define SONAR_TRIG_PIN 14 &nbsp;&nbsp;// Ch&#226;n ph&#225;t xung Trigger</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p><p class=pre  style="mso-pagination:widow-orphan;mso-line-height-alt:12pt;" ><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" >#define SONAR_ECHO_PIN 13 &nbsp;&nbsp;// Ch&#226;n nh&#7853;n xung Echo (qua c&#7847;u ph&#226;n &#225;p 1k:2k)</span><span style="mso-spacerun:'yes';font-family:'Times New Roman';mso-fareast-font-family:Consolas;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;" ><o:p></o:p></span></p></div><!--EndFragment--></body></html>

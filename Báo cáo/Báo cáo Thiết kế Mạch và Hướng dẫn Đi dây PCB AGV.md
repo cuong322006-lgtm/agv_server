@@ -3,8 +3,8 @@
 * **Dự án:** Xe Tự Hành AGV 4 Bánh Mecanum - Tích hợp Điều Hướng SLAM LiDAR & AI Vision
 * **Bộ điều khiển trung tâm:** ESP32-S3-DevKitC-1 (N16R8V)
 * **Phần mềm thiết kế Schematic & PCB:** Altium Designer
-* **Quy cách chế tạo mạch:** Mạch in 2 lớp (2-Layer FR4 PCB, độ dày 1.6mm, độ dày đồng 1oz/35µm)
-* **Ngày cập nhật sơ đồ nguyên lý mới nhất:** 05/11/2026
+* **Quy cách chế tạo mạch:** Mạch in 2 lớp (2-Layer FR4 PCB, kích thước $150 \times 90\text{ mm}$, độ dày 1.6mm, độ dày đồng 1oz/35µm)
+* **Ngày cập nhật sơ đồ nguyên lý mới nhất:** 18/11/2026 (Đã bổ sung Header `P2` cho Cảm biến góc từ 360° `AS5600`)
 
 ---
 
@@ -14,7 +14,7 @@ Hệ thống điện tử trên xe tự hành AGV được thiết kế theo c�
 
 1. **Khối Xử Lý Trung Tâm (Master Controller):**
    * Sử dụng vi điều khiển **ESP32-S3 DevKitC-1 (N16R8V)** trang bị Dual-Core Xtensa LX7 240MHz.
-   * Đảm nhiệm giao tiếp Wi-Fi WebSocket lên Server, nhận gói tin điều khiển vận tốc $(V_x, V_y, \omega)$, tính toán động học nghịch 4 bánh Mecanum, xuất xung PWM điều khiển 2 mạch cầu H TB6612FNG, đọc cảm biến LiDAR YDLidar X2 qua UART (GPIO11/12), kích hoạt cảm biến siêu âm HC-SR05 né vật cản khẩn cấp (GPIO14/13) và giao tiếp bus I2C với IC mở rộng PWM PCA9685 (GPIO6/10).
+   * Đảm nhiệm giao tiếp Wi-Fi WebSocket lên Server, nhận gói tin điều khiển vận tốc $(V_x, V_y, \omega)$, tính toán động học nghịch 4 bánh Mecanum, xuất xung PWM điều khiển 2 mạch cầu H TB6612FNG, đọc cảm biến LiDAR YDLidar X2 qua UART (GPIO11/12), kích hoạt cảm biến siêu âm HC-SR05 né vật cản khẩn cấp (GPIO14/13) và giao tiếp **bus I2C kép (SDA = GPIO6, SCL = GPIO10)** điều khiển đồng thời IC mở rộng PWM **PCA9685 (`0x40`)** và cảm biến phản hồi góc tuyệt đối 360° **AS5600 (`0x36`)** cho khớp Đế Cánh Tay.
 
 2. **Khối Quản Lý Nguồn & Hạ Áp (Power Management System):**
    * **Nguồn sơ cấp:** Pin sạc Li-ion 3S (11.1V danh định, 12.6V khi sạc đầy) cấp nguồn trực tiếp qua cọc nguồn `HD6`.
@@ -27,8 +27,9 @@ Hệ thống điện tử trên xe tự hành AGV được thiết kế theo c�
    * Sử dụng **2 Module Driver TB6612FNG Dual H-Bridge MOSFET** (`U2` và `U4`).
    * Điều khiển 4 động cơ giảm tốc DC 3-6V gắn bánh xe Mecanum 80mm. Mỗi kênh đều có tụ hóa $470\mu\text{F}/25\text{V}$ bù áp tức thời và tụ gốm $100\text{nF}$ dập nhiễu cao tần.
 
-4. **Khối Điều Khiển Cơ Cấu Chấp Hành (Servo Expansion):**
-   * Sử dụng **Module PCA9685** (`U1`) giao tiếp bus I2C (SDA trên GPIO6, SCL trên GPIO10) với ESP32-S3. Mạch tạo xung phần cứng 12-bit PWM độc lập cho 16 kênh.
+4. **Khối Điều Khiển Cơ Cấu Chấp Hành & Phản Hồi Góc Cánh Tay (Servo Expansion & AS5600 Encoder):**
+   * **Module PCA9685 (`U1`, địa chỉ I2C `0x40`):** Giao tiếp bus I2C (`SDA` = Net `SV1.2` trên `GPIO6`, `SCL` = Net `SV1.1` trên `GPIO10`) với ESP32-S3. Tạo xung phần cứng 12-bit PWM độc lập điều khiển 1 Servo MG996R 360° (Kênh 0 - Đế xoay) và 3 Servo MG996R 180° (Kênh 1, 2, 3 - Vai, Khuỷu, Kẹp).
+   * **Module Cảm Biến Góc Từ Tính 12-bit AS5600 (`P2`, địa chỉ I2C `0x36`):** Đấu song song trên cùng bus I2C (`SV1.1` / `SV1.2`) qua Header 4 chân `P2` trên PCB, đọc góc xoay thực tế từ `0.0°` đến `360.0°` (4096 bước) của khớp Đế Servo 360° để dừng chính xác từng độ.
 
 5. **Khối Cảm Biến Định Vị & Truyền Hình Ảnh (Perception & Vision):**
    * **2D LiDAR YDLidar X2:** Truyền dữ liệu về ESP32-S3 qua UART (TX nối GPIO11, M_EN nối GPIO12).
@@ -43,9 +44,9 @@ Hệ thống điện tử trên xe tự hành AGV được thiết kế theo c�
 
 | Chân trên Bo DevKit | Tên Pin / Net Label | Hướng tín hiệu | Kết nối đến linh kiện | Chức năng chi tiết trong hệ thống AGV |
 | :--- | :--- | :--- | :--- | :--- |
-| **J1_1, J1_2** | `3V3` / `M1.1` | Nguồn ra | Chân `STBY` của TB6612 #1 và #2 | Kéo chân Standby lên mức CAO để kích hoạt 2 Driver động cơ hoạt động |
-| **J1_6** | `GPIO6` / `SV1.2` | I/O (SDA) | Chân `SDA` của PCA9685 | Đường truyền dữ liệu bus I2C điều khiển Servo |
-| **J1_16** | `GPIO10` / `SV1.1` | Output (SCL) | Chân `SCL` của PCA9685 | Đường xung nhịp đồng hồ bus I2C (tần số 400kHz) |
+| **J1_1, J1_2** | `3V3` / `M1.1` | Nguồn ra | Chân `STBY` của 2×TB6612 & Pin 1 (`VCC`) của Header `P2 (AS5600)` | Kéo chân Standby kích hoạt 2 Driver động cơ và cấp nguồn chuẩn 3.3V cho cảm biến góc từ `AS5600` |
+| **J1_6** | `GPIO6` / `SV1.2` | I/O (SDA) | Chân `SDA` của `PCA9685` **và** Pin 4 (`SDA`) của `P2 (AS5600)` | Đường truyền dữ liệu bus I2C chung cho cả PCA9685 (`0x40`) và AS5600 (`0x36`) |
+| **J1_16** | `GPIO10` / `SV1.1` | Output (SCL) | Chân `SCL` của `PCA9685` **và** Pin 3 (`SCL`) của `P2 (AS5600)` | Đường xung nhịp đồng hồ bus I2C (400kHz) chung cho cả PCA9685 và AS5600 |
 | **J1_17** | `GPIO11` / `LIDA-TX` | Input (RX2) | Chân `TX` của YDLidar X2 | Nhận dòng byte dữ liệu điểm đo quét laser 360 độ |
 | **J1_18** | `GPIO12` / `LIDA-EN` | Output | Chân `M_EN` của YDLidar X2 | Bật / Tắt motor quay quét laser của mắt LiDAR |
 | **J1_19** | `GPIO13` | Input | Điểm giữa cầu phân áp $1\text{k}\Omega : 2\text{k}\Omega$ | Nhận xung phản hồi `ECHO` từ HC-SR05 (giảm áp từ 5V xuống 3.3V) |
@@ -160,6 +161,25 @@ Hệ thống điện tử trên xe tự hành AGV được thiết kế theo c�
 
 ---
 
+### 2.8. [MỚI BỔ SUNG] Bảng kết nối Cảm biến Góc Từ 360° AS5600 (`P2` - Header 4 Chân 2.54mm)
+
+> **Hướng dẫn vẽ thêm trên Altium Designer (`Sheet1.SchDoc` & `PCB1.PcbDoc`):**
+> * Lấy 1 linh kiện **Header 4-Pin (khoảng cách chân chuẩn `2.54mm`)**, đặt tên là **`P2`** (hoặc `AS5600`).
+> * **Vị trí đặt trên PCB (`PCB1.PcbDoc`):** Đặt `P2` ở **cạnh trên của bo mạch, ngay sát bên cạnh Header `P1` (YDLidar X2) và đầu trên của Module `PCA9685` (`U1`)**. Tại vị trí này, cả 4 đường mạng (`M1.1 / 3V3`, `GND_Logic`, `SV1.1`, `SV1.2`) đều nằm ngay sát cạnh dưới $10\text{ mm}$, đi dây cực ngắn không cần nhảy Via phức tạp!
+
+| Chân Header `P2` trên PCB | Nối tới chân trên Module `AS5600` | Tên Net trên Schematic (`Sheet1.SchDoc`) | Kết nối về ESP32-S3 / PCA9685 | Mức điện áp & Quy tắc đi dây PCB |
+| :---: | :---: | :---: | :--- | :--- |
+| **Pin 1** | `VCC` | **`M1.1`** *(hoặc `3V3`)* | Chân `3V3` (`J1_1` / `J1_2`) của ESP32-S3 *(hoặc dùng `5v1` nếu để nguyên R1 trên AS5600)* | **3.3V DC** (Độ rộng đường mạch: `0.5 mm`). Cấp áp chuẩn 3.3V cho chip AS5600 |
+| **Pin 2** | `GND` *(và nối tắt chân `DIR` vào `GND` trên bo AS5600)* | **`GND_Logic`** | Mass chung hệ thống logic (`GND`) | **0V** (Phủ đồng Polygon Pour `GND_Logic` trực tiếp vào chân) |
+| **Pin 3** | `SCL` | **`SV1.1`** | Nối chung đường **`GPIO10` (`J1_16`)** & chân `SCL_1` của `PCA9685` | **3.3V I2C Clock** (Độ rộng đường mạch: `0.3 mm – 0.4 mm`, đi song song cạnh dây `SDA`) |
+| **Pin 4** | `SDA` | **`SV1.2`** | Nối chung đường **`GPIO6` (`J1_6`)** & chân `SDA_1` của `PCA9685` | **3.3V I2C Data** (Độ rộng đường mạch: `0.3 mm – 0.4 mm`). Địa chỉ I2C của AS5600 là `0x36` (không trùng với `0x40` của PCA9685) |
+
+*Lưu ý đối với các chân còn lại trên bo cảm biến `AS5600` (nằm trên nóc Cabin):*
+* **Chân `DIR` trên bo AS5600:** Hàn nối tắt trực tiếp sang chân `GND` ngay sát cạnh nó trên bo AS5600 (để cố định chiều tăng góc thuận kim đồng hồ $0^\circ \to 360^\circ$, nhờ đó chỉ cần kéo đúng **4 sợi dây** từ nóc Cabin xuống Header `P2` trên PCB).
+* **Chân `OUT` và `GPO` trên bo AS5600:** Bỏ trống (không sử dụng).
+
+---
+
 ## PHẦN 3: ĐOẠN MÃ NGUỒN C++ KHAI BÁO CHÂN (DÙNG ĐỂ LẬP TRÌNH XE AGV)
 
 Dưới đây là file cấu hình chân `PinMap_AGV.h` bạn có thể copy trực tiếp vào Arduino IDE hoặc PlatformIO:
@@ -191,10 +211,12 @@ Dưới đây là file cấu hình chân `PinMap_AGV.h` bạn có thể copy tr�
 #define M4_IN2_PIN    42    // Động cơ 4 - Chiều quay BIN2
 
 // ==========================================
-// 3. I2C ĐIỀU KHIỂN 16 SERVO (PCA9685)
+// 3. BUS I2C KÉP: 16 SERVO (PCA9685) + CẢM BIẾN GÓC 360° (AS5600)
 // ==========================================
-#define I2C_SDA_PIN   6     // Chân dữ liệu SDA
-#define I2C_SCL_PIN   10    // Chân xung nhịp SCL
+#define I2C_SDA_PIN       6     // Chân dữ liệu SDA (Net SV1.2 - Dùng chung PCA9685 & AS5600)
+#define I2C_SCL_PIN       10    // Chân xung nhịp SCL (Net SV1.1 - Dùng chung PCA9685 & AS5600)
+#define PCA9685_I2C_ADDR  0x40  // Địa chỉ I2C của Module 16 Kênh Servo PCA9685 (U1)
+#define AS5600_I2C_ADDR   0x36  // Địa chỉ I2C của Cảm biến góc từ 360° AS5600 (P2)
 
 // ==========================================
 // 4. MẮT QUÉT 2D LIDAR (YDLIDAR X2)

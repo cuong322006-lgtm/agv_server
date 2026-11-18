@@ -1,0 +1,300 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset="utf-8">
+<title>Báo cáo Thiết kế Cơ khí và Khung Xe AGV</title>
+<style>
+    body { font-family: "Times New Roman", serif; font-size: 13pt; line-height: 1.45; color: #111; margin: 2cm; }
+    h1 { text-align: center; color: #003366; font-size: 18pt; text-transform: uppercase; margin-bottom: 6pt; }
+    h2 { color: #004080; font-size: 14pt; border-bottom: 1.5px solid #004080; padding-bottom: 3pt; margin-top: 16pt; }
+    h3 { color: #0055a5; font-size: 13pt; margin-top: 12pt; }
+    table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 12pt; }
+    th, td { border: 1px solid #333; padding: 6pt 8pt; vertical-align: middle; }
+    th { background-color: #d9e8f5; color: #002b4d; font-weight: bold; text-align: center; }
+    .center { text-align: center; }
+    .bold { font-weight: bold; }
+    .section-row { background-color: #eef5fc; font-weight: bold; color: #003366; }
+    pre { font-family: "Consolas", "Courier New", monospace; font-size: 10pt; background-color: #f7f9fa; border: 1px solid #ccc; padding: 10pt; line-height: 1.25; }
+    ul { margin-top: 4pt; margin-bottom: 8pt; }
+    li { margin-bottom: 4pt; }
+</style>
+</head>
+<body>
+
+<h1>BÁO CÁO THIẾT KẾ CƠ KHÍ VÀ KÍCH THƯỚC KHUNG XE TỰ HÀNH AGV<br/>(KIỂU DÁNG XE TẢI ĐẦU VUÔNG CÔNG NGHIỆP)</h1>
+
+<p>
+<b>Dự án:</b> Xe Tự Hành AGV 4 Bánh Mecanum – Tích hợp Điều Hướng SLAM LiDAR, AI Vision &amp; Cánh Tay Robot Bốc Xếp Hàng<br/>
+<b>Kiểu dáng thiết kế:</b> Xe tải đầu vuông (Cab-Over Square Truck AGV)<br/>
+<b>Hệ truyền động:</b> 04 Động cơ giảm tốc bánh răng kim loại 1:90 (Chuẩn TT) + 04 Bánh xe đa hướng Mecanum 80mm<br/>
+<b>Cơ cấu chấp hành:</b> Cánh tay Robot 3 bậc tự do (PCA9685 I2C + 03 Servo 180° + 01 Servo 360° dự phòng) tích hợp Camera Eye-in-Hand<br/>
+<b>Ngày lập bản vẽ thông số:</b> 16/11/2026
+</p>
+
+<h2>PHẦN 1: TỔNG QUAN KIẾN TRÚC CƠ KHÍ &amp; VẬT LIỆU CHẾ TẠO</h2>
+<p>
+Thiết kế cơ khí của xe tự hành AGV được lấy cảm hứng từ dòng <b>xe tải đầu vuông (Cab-Over Truck)</b> gồm 2 phân khu chức năng rõ rệt:
+<b>Đầu Cabin điều hướng &amp; gắp hàng</b> phía trước (10 &times; 25 &times; 10 cm) và <b>Thùng chở hàng kèm khoang máy</b> phía sau (25 &times; 25 &times; 5 cm).
+</p>
+
+<h3>1.1. Giải pháp phân bổ vật liệu tối ưu tải trọng</h3>
+<p>
+Để đảm bảo <b>4 động cơ giảm tốc bánh răng kim loại 1:90 (3–6V)</b> đạt hiệu suất cao nhất khi di chuyển ngang (Strafe) bằng bánh Mecanum 80mm và không gây quá tải dòng cho 2 IC cầu H <b>TB6612FNG</b>, tổng trọng lượng bản thân xe (chưa tính hàng) được kiểm soát dưới ngưỡng <b>2.0 – 2.5 kg</b> thông qua kết cấu vật liệu lai (Hybrid Chassis):
+</p>
+<ul>
+    <li><b>Khung gầm chịu lực chính (Main Chassis Frame):</b> Sử dụng <b>thép tấm mỏng đục lỗ (1.0 mm – 1.2 mm)</b> hoặc khung xương thép hộp mỏng giúp hạ thấp trọng tâm (Center of Gravity), chống võng sàn và chịu lực vặn xoắn khi xe đi ngang.</li>
+    <li><b>Vỏ Cabin đầu vuông &amp; Thành thùng hàng:</b> Sử dụng tấm <b>Alu (nhôm nhựa), Mica hoặc nhựa In 3D</b> lắp ghép trên khung xương thép để giữ form vuông vức, thẩm mỹ cao và giảm 50% khối lượng phần thân trên.</li>
+    <li><b>Giá đỡ động cơ (Motor Mounts):</b> Sử dụng <b>4 gá ôm chữ U chuyên dụng chuẩn TT (G140 / G141)</b>, cố định mỗi động cơ bằng 2 bu-lông <b>M3 &times; 30mm</b> xuyên thân kèm đai ốc chống tự tháo.</li>
+</ul>
+
+<h2>PHẦN 2: SƠ ĐỒ BỐ TRÍ HÌNH HỌC TỔNG THỂ (TOP VIEW &amp; SIDE VIEW)</h2>
+
+<h3>2.1. Bản vẽ mặt bằng nhìn từ trên xuống (Top View)</h3>
+<pre>
+                  [MẶT TRƯỚC ĐẦU XE - RỘNG 250mm (25cm)]
+                  +-------[HC-SR05 Chính Giữa]-------+
+     Bánh Trước   |  (Lidar X2)    [ĐẾ CÁNH TAY]     |   Bánh Trước
+     Trái 80mm ===|   Cách trái     Chính giữa       |=== Phải 80mm
+    (Tâm X=65mm)  |     50mm       (X=40, Y=125)     |   (Tâm X=65mm)
+                  |       CABIN (100 x 250 mm)       |
+                  +----------------------------------+  &lt;-- Vách ngăn X = 100mm (10cm)
+                  |                                  |
+                  |         THÙNG CHỞ HÀNG           |
+                  |       (250 x 250 x 50 mm)        |
+                  |                                  |
+                  |    [Dưới gầm sàn thùng chứa:     |
+     Bánh Sau     |     Mạch PCB 150x90mm + Pin]     |   Bánh Sau
+     Trái 80mm ===|                                  |=== Phải 80mm
+    (Tâm X=285mm) |                                  |   (Tâm X=285mm)
+                  +----------------------------------+
+                  [ĐUÔI XE - TỔNG CHIỀU DÀI X = 350mm (35cm)]
+</pre>
+
+<h3>2.2. Bản vẽ mặt cắt dọc nhìn ngang (Side Elevation View)</h3>
+<pre>
+          [ESP32-CAM gắn trên cổ tay]
+                 \   [Cánh Tay 3 Servo]
+       [Lidar X2] \      ||
+         [===]     \____/||\____
+      +------------+               (Nóc Cabin cao 175mm so với mặt đất)
+      |            |
+      |   CABIN    |   +------------------------+  (Mép thành thùng cao 125mm)
+      | 100x100mm  |   |   LÒNG THÙNG CHỞ HÀNG  |  (Thành thùng cao 50mm)
+  [o] |            |---|     (Dài 250 mm)       |  &lt;-- Mặt sàn thùng (Cao 75mm)
+HC-SR +------------+---+------------------------+
+      |   KHOANG GẦM KỸ THUẬT (Cao 45mm)        |  &lt;-- Chứa PCB 150x90mm + Pin 3S
+      +-----(O)--------------------------(O)----+  &lt;-- Đáy gầm cách đất 30mm
+           Bánh Trước 80mm             Bánh Sau 80mm
+           (Tâm X = 65mm)              (Tâm X = 285mm)
+</pre>
+
+<h2>PHẦN 3: BẢNG THÔNG SỐ KÍCH THƯỚC CHI TIẾT TOÀN BỘ THÂN XE</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th style="width: 7%;">STT</th>
+            <th style="width: 36%;">Hạng mục thiết kế cơ khí</th>
+            <th style="width: 14%;">Số đo (cm)</th>
+            <th style="width: 14%;">Số đo (mm)</th>
+            <th style="width: 29%;">Dung sai &amp; Ghi chú gia công</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="section-row">
+            <td class="center">I</td>
+            <td colspan="4">KÍCH THƯỚC BAO CHUNG (OVERALL DIMENSIONS)</td>
+        </tr>
+        <tr>
+            <td class="center">1</td>
+            <td>Chiều dài tổng thể khung xe (<i>L</i>)</td>
+            <td class="center bold">35.0 cm</td>
+            <td class="center bold">350 mm</td>
+            <td>Gồm 100 mm đầu Cabin + 250 mm Thùng xe</td>
+        </tr>
+        <tr>
+            <td class="center">2</td>
+            <td>Chiều rộng thân khung xe (<i>W</i>)</td>
+            <td class="center bold">25.0 cm</td>
+            <td class="center bold">250 mm</td>
+            <td>Rộng phủ bì cả 2 bánh Mecanum lắp ngoài: ~320 mm</td>
+        </tr>
+        <tr>
+            <td class="center">3</td>
+            <td>Khoảng sáng gầm xe (<i>H<sub>clear</sub></i>)</td>
+            <td class="center bold">3.0 cm</td>
+            <td class="center bold">30 mm</td>
+            <td>Từ mặt đất đến mặt đáy khoang gầm kỹ thuật</td>
+        </tr>
+        <tr>
+            <td class="center">4</td>
+            <td>Chiều dày khoang gầm kỹ thuật (<i>H<sub>bay</sub></i>)</td>
+            <td class="center bold">4.5 cm</td>
+            <td class="center bold">45 mm</td>
+            <td>Từ độ cao 30 mm đến 75 mm (chứa PCB + Pin)</td>
+        </tr>
+        <tr>
+            <td class="center">5</td>
+            <td>Độ cao mặt sàn thùng hàng (<i>H<sub>bed</sub></i>)</td>
+            <td class="center bold">7.5 cm</td>
+            <td class="center bold">75 mm</td>
+            <td>Tính từ mặt đất lên mặt sàn đặt thùng hàng</td>
+        </tr>
+
+        <tr class="section-row">
+            <td class="center">II</td>
+            <td colspan="4">KÍCH THƯỚC CABIN ĐẦU VUÔNG (FRONT CABIN)</td>
+        </tr>
+        <tr>
+            <td class="center">6</td>
+            <td>Chiều dài Cabin (<i>L<sub>cab</sub></i>)</td>
+            <td class="center bold">10.0 cm</td>
+            <td class="center bold">100 mm</td>
+            <td>Từ mũi xe (X = 0) đến vách ngăn thùng (X = 100 mm)</td>
+        </tr>
+        <tr>
+            <td class="center">7</td>
+            <td>Chiều rộng Cabin (<i>W<sub>cab</sub></i>)</td>
+            <td class="center bold">25.0 cm</td>
+            <td class="center bold">250 mm</td>
+            <td>Đồng bộ bề ngang với thân xe</td>
+        </tr>
+        <tr>
+            <td class="center">8</td>
+            <td>Chiều cao Cabin (<i>H<sub>cab</sub></i>)</td>
+            <td class="center bold">10.0 cm</td>
+            <td class="center bold">100 mm</td>
+            <td>Tính từ sàn thùng (75 mm) &rarr; Nóc Cabin cao 175 mm</td>
+        </tr>
+
+        <tr class="section-row">
+            <td class="center">III</td>
+            <td colspan="4">KÍCH THƯỚC THÙNG CHỞ HÀNG PHÍA SAU (CARGO BED)</td>
+        </tr>
+        <tr>
+            <td class="center">9</td>
+            <td>Chiều dài lòng thùng (<i>L<sub>cargo</sub></i>)</td>
+            <td class="center bold">25.0 cm</td>
+            <td class="center bold">250 mm</td>
+            <td>Từ vách sau Cabin (X = 100 mm) đến đuôi xe (X = 350 mm)</td>
+        </tr>
+        <tr>
+            <td class="center">10</td>
+            <td>Chiều rộng lòng thùng (<i>W<sub>cargo</sub></i>)</td>
+            <td class="center bold">25.0 cm</td>
+            <td class="center bold">250 mm</td>
+            <td>Mặt sàn vuông 250 &times; 250 mm, làm dạng nắp mở bản lề</td>
+        </tr>
+        <tr>
+            <td class="center">11</td>
+            <td>Chiều cao thành thùng (<i>H<sub>wall</sub></i>)</td>
+            <td class="center bold">5.0 cm</td>
+            <td class="center bold">50 mm</td>
+            <td>Giữ thùng hàng không xê dịch khi xe di chuyển</td>
+        </tr>
+
+        <tr class="section-row">
+            <td class="center">IV</td>
+            <td colspan="4">HỆ THỐNG BÁNH XE MECANUM 80MM &amp; ĐỘNG CƠ 1:90</td>
+        </tr>
+        <tr>
+            <td class="center">12</td>
+            <td>Kích thước bánh xe Mecanum</td>
+            <td class="center bold">8.0 &times; 3.8 cm</td>
+            <td class="center bold">80 &times; 38 mm</td>
+            <td>04 bánh đa hướng (2 bánh Trái + 2 bánh Phải), khớp TT</td>
+        </tr>
+        <tr>
+            <td class="center">13</td>
+            <td>Độ cao tâm trục động cơ so với đất</td>
+            <td class="center bold">4.0 cm</td>
+            <td class="center bold">40 mm</td>
+            <td>Bằng đúng bán kính bánh xe R = 40 mm</td>
+        </tr>
+        <tr>
+            <td class="center">14</td>
+            <td>Tọa độ trục 2 bánh trước (<i>X<sub>front</sub></i>)</td>
+            <td class="center bold">6.5 cm</td>
+            <td class="center bold">65 mm</td>
+            <td>Tính từ mũi xe (đỡ trực tiếp trọng tâm Cabin &amp; Cánh tay)</td>
+        </tr>
+        <tr>
+            <td class="center">15</td>
+            <td>Tọa độ trục 2 bánh sau (<i>X<sub>rear</sub></i>)</td>
+            <td class="center bold">28.5 cm</td>
+            <td class="center bold">285 mm</td>
+            <td>Cách đuôi xe 65 mm</td>
+        </tr>
+        <tr>
+            <td class="center">16</td>
+            <td>Chiều dài cơ sở 2 trục (<i>L<sub>wheelbase</sub></i>)</td>
+            <td class="center bold">22.0 cm</td>
+            <td class="center bold">220 mm</td>
+            <td>Khoảng cách tâm trục trước &harr; tâm trục sau</td>
+        </tr>
+        <tr>
+            <td class="center">17</td>
+            <td>Khoảng cách 2 lỗ bắt ốc trên Motor</td>
+            <td class="center bold">1.75 cm</td>
+            <td class="center bold">17.5 mm</td>
+            <td>Lỗ &Phi;3.2 mm, dùng ốc M3 &times; 30mm + gá chữ U G140/G141</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>PHẦN 4: TỌA ĐỘ ĐỊNH VỊ CẢM BIẾN, CÁNH TAY ROBOT &amp; BO MẠCH ĐIỆN TỬ</h2>
+
+<h3>4.1. Cụm Cánh Tay Robot 3 Bậc Tự Do &amp; Camera Eye-in-Hand (Trên Nóc Cabin)</h3>
+<ul>
+    <li><b>Vị trí tâm trục xoay Đế Cánh Tay (Base Servo):</b>
+        <ul>
+            <li><b>Tọa độ ngang (Y):</b> <b>125 mm (12.5 cm)</b> — nằm chính giữa trục đối xứng dọc của xe.</li>
+            <li><b>Tọa độ dọc (X):</b> <b>40 mm (4.0 cm)</b> tính từ mép trước Cabin (cách vách sau Cabin 60 mm). Vị trí này giúp cánh tay vươn ra khỏi mũi xe dễ dàng mà không cạ vào trán Cabin.</li>
+        </ul>
+    </li>
+    <li><b>Cấu hình các khớp Servo (Điều khiển qua mạch PCA9685 I2C 0x40):</b>
+        <ul>
+            <li><b>Kênh 0 (Khớp Đế xoay ngang - Servo 180°):</b> Góc 0° hướng thẳng ra trước mũi xe để gắp thùng hàng; lia góc 0° &plusmn; 30° để quét tìm mã QR; quay góc 180° ra phía sau để đặt thùng hàng xuống chính giữa thùng xe (250 &times; 250 mm).</li>
+            <li><b>Kênh 1 (Khớp Vai / Khuỷu nâng hạ - Servo 180°):</b> Điều khiển độ vươn và nâng/hạ thùng hàng.</li>
+            <li><b>Kênh 2 (Khớp Ngàm Kẹp - Servo 180°):</b> Đóng/mở kẹp gắp thùng hàng.</li>
+            <li><i>(Dự phòng: 01 Servo 360° dùng cho cơ cấu tời/cuốn hoặc mở rộng bậc tự do thứ 4).</i></li>
+        </ul>
+    </li>
+    <li><b>Vị trí gắn Camera AI ESP32-CAM ("Eye-in-Hand"):</b> Gắn cố định trên <b>cổ tay cánh tay (phía trên ngàm kẹp 30 mm)</b>, trục quang học song song với hướng mở của ngón kẹp để vừa tìm mã QR từ xa vừa căn tâm thùng hàng chính xác khi hạ kẹp.</li>
+</ul>
+
+<h3>4.2. Cảm Biến Quét Laser 360° YDLidar X2 (Trên Nóc Cabin)</h3>
+<ul>
+    <li><b>Tọa độ ngang (Y):</b> Cách mép trái Cabin <b>50 mm (5.0 cm)</b> (cách tâm đế cánh tay 75 mm về phía bên trái).</li>
+    <li><b>Tọa độ dọc (X):</b> Cách mép trước Cabin <b>45 mm (4.5 cm)</b>.</li>
+    <li><b>Độ cao lắp đặt:</b> Bắt trên 4 trụ đồng (Standoff M3) cao <b>30 – 40 mm</b> trên mặt nóc Cabin để thấu kính laser nằm ở độ cao ~210 mm so với mặt đất.</li>
+    <li><b>Xử lý chống nhiễu góc khuất:</b> Phần mềm SLAM &amp; Pathfinding tự động lọc bỏ các điểm phản xạ có cự ly &lt; 150 mm (vùng thân cánh tay bên cạnh) để không tạo vật cản ảo.</li>
+</ul>
+
+<h3>4.3. Cảm Biến Siêu Âm HC-SR05 (Mặt Trước Cabin)</h3>
+<ul>
+    <li><b>Vị trí khoét lỗ:</b> Chính giữa mặt trước cản Cabin (Y = 125 mm), độ cao cách mặt đất <b>60 mm (6.0 cm)</b>.</li>
+    <li><b>Kích thước lỗ khoét:</b> 2 lỗ tròn đường kính <b>16 mm</b>, khoảng cách tâm 2 lỗ <b>26 mm</b>.</li>
+</ul>
+
+<h3>4.4. Khoang Gầm Kỹ Thuật &amp; Quy Tắc Lắp Đặt 4 Bánh Mecanum</h3>
+<ul>
+    <li><b>Khoang Gầm Kỹ Thuật (Dưới sàn thùng xe 250 &times; 250 &times; 45 mm):</b>
+        <ul>
+            <li>Bố trí <b>Bo mạch PCB trung tâm (150 &times; 90 mm)</b> trên 4 trụ đồng cách điện cao 10 mm ở giữa khoang.</li>
+            <li>Bố trí <b>Khối Pin Li-ion 3S 12V</b> nằm sát trục giữa xe để cân bằng trọng lượng 4 bánh.</li>
+            <li>Mặt sàn thùng hàng phía trên (250 &times; 250 mm) làm dạng <b>nắp đậy có bản lề</b> để mở lên thao tác công tắc nguồn, nạp chương trình và bảo trì mạch dễ dàng.</li>
+        </ul>
+    </li>
+    <li><b>Quy tắc lắp chiều con lăn 4 bánh Mecanum 80mm (Chuẩn chữ X):</b>
+        Khi nhìn từ trên đỉnh xe xuống mặt đất, đường chéo của các con lăn cao su trên 4 bánh xe <b>BẮT BUỘC phải hội tụ về tâm xe tạo thành hình chữ X</b>:
+        <ul>
+            <li><b>Bánh Trước - Trái:</b> Con lăn hướng <b>\</b></li>
+            <li><b>Bánh Trước - Phải:</b> Con lăn hướng <b>/</b></li>
+            <li><b>Bánh Sau - Trái:</b> Con lăn hướng <b>/</b></li>
+            <li><b>Bánh Sau - Phải:</b> Con lăn hướng <b>\</b></li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+</html>

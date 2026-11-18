@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bản Vẽ Lắp Autodesk Inventor (.IAM & .IDW) - Khung Sắt V Lỗ, Hốc Bánh Xe & Cánh Tay MG996R AGV</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #14181f;
+            color: #e6ecf5;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }
+        #topbar {
+            height: 46px;
+            background: linear-gradient(90deg, #1b222c, #252f3d);
+            border-bottom: 1px solid #3c4b60;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 14px;
+            z-index: 30;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 13.5px;
+            color: #ffa801;
+        }
+        .brand .sub {
+            color: #00d8d6;
+            font-weight: 600;
+            font-size: 12px;
+        }
+        .ribbon {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .rbtn {
+            background: #2c3849;
+            color: #e6ecf5;
+            border: 1px solid #4a5c75;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .rbtn:hover { background: #3b4b61; border-color: #00d8d6; }
+        .rbtn.active { background: #00d8d6; color: #10151c; border-color: #00d8d6; }
+        .rbtn.action { background: #05c46b; color: #10151c; border-color: #05c46b; }
+        .rbtn.warn { background: #ffa801; color: #10151c; border-color: #ffa801; }
+        .rbtn.blueprint { background: #3742fa; color: #ffffff; border-color: #5352ed; }
+
+        #workspace {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        #left-panel {
+            width: 365px;
+            background: #1b212a;
+            border-right: 1px solid #323e4f;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 10px;
+            gap: 9px;
+            z-index: 20;
+        }
+        .panel-box {
+            background: #222a35;
+            border: 1px solid #334052;
+            border-radius: 6px;
+            padding: 8px 10px;
+        }
+        .panel-title {
+            font-size: 11.5px;
+            font-weight: bold;
+            color: #ffd32a;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #334052;
+            padding-bottom: 4px;
+        }
+        .tree-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11.5px;
+            padding: 3px 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tree-item:hover { background: #2d3847; }
+        .tree-left { display: flex; align-items: center; gap: 6px; }
+        .badge-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffa801;
+            color: #111;
+            font-weight: bold;
+            font-size: 10.5px;
+        }
+        .zoom-mini {
+            background: #334155;
+            color: #00d8d6;
+            border: 1px solid #475569;
+            border-radius: 3px;
+            padding: 1px 6px;
+            font-size: 10.5px;
+            cursor: pointer;
+        }
+        .zoom-mini:hover { background: #00d8d6; color: #111; }
+
+        .ctrl-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            font-size: 11.5px;
+        }
+        .ctrl-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+            color: #d1d8e0;
+        }
+        .ctrl-label .val {
+            color: #0be881;
+            font-family: Consolas, monospace;
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+            accent-color: #00d8d6;
+            cursor: pointer;
+            height: 5px;
+        }
+
+        #viewport {
+            flex: 1;
+            position: relative;
+            background: radial-gradient(circle at center, #25303f 0%, #12171e 100%);
+            overflow: hidden;
+        }
+
+        /* 2D HTML Labels for 3D Balloons & Dimensions */
+        #labels-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .balloon-label {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: rgba(18, 24, 32, 0.92);
+            border: 1.5px solid #ffa801;
+            color: #fff;
+            padding: 2px 7px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+            pointer-events: auto;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            transition: transform 0.1s;
+        }
+        .balloon-label:hover {
+            background: #ffa801;
+            color: #111;
+            transform: translate(-50%, -50%) scale(1.12);
+            z-index: 15;
+        }
+        .dim-label {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: rgba(16, 36, 52, 0.92);
+            border: 1px solid #00d8d6;
+            color: #00d8d6;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* Right Detail Inspector & BOM Table */
+        #right-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 390px;
+            max-height: calc(100vh - 105px);
+            background: rgba(20, 26, 34, 0.94);
+            border: 1px solid #48586f;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 11.5px;
+            overflow-y: auto;
+            z-index: 15;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+        table.bom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            font-size: 11px;
+        }
+        table.bom-table th, table.bom-table td {
+            border: 1px solid #384659;
+            padding: 4px 6px;
+            text-align: left;
+        }
+        table.bom-table th {
+            background: #2c3849;
+            color: #ffd32a;
+            text-align: center;
+        }
+        table.bom-table tr:hover {
+            background: rgba(0, 216, 214, 0.15);
+            cursor: pointer;
+        }
+
+        #bottom-bar {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            right: 10px;
+            background: rgba(20, 26, 34, 0.9);
+            border: 1px solid #334052;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 11.5px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 15;
+        }
+
+        /* Modal Bản Vẽ Lắp Kỹ Thuật 2D (.IDW Blueprint Sheet) */
+        #blueprint-modal {
+            display: none;
+            position: fixed;
+            top: 46px; left: 0; right: 0; bottom: 0;
+            background: #e8eef5;
+            color: #002b5c;
+            z-index: 50;
+            padding: 16px;
+            overflow: auto;
+        }
+        .sheet-frame {
+            background: #ffffff;
+            border: 3px solid #002b5c;
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+            position: relative;
+        }
+        .blueprint-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .bp-box {
+            border: 1.5px solid #002b5c;
+            padding: 8px;
+            background: #f8fbff;
+            text-align: center;
+        }
+        .bp-box h4 {
+            font-size: 13px;
+            color: #002b5c;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            border-bottom: 1px dashed #004080;
+            padding-bottom: 4px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/STLExporter.js"></script>
+</head>
+<body>
+
+    <div id="topbar">
+        <div class="brand">
+            <span>📐 AUTODESK INVENTOR ASSEMBLY (.IAM + .IDW)</span>
+            <span class="sub">| Bản Vẽ Lắp Chi Tiết Khung Sắt V Lỗ & Cánh Tay MG996R</span>
+        </div>
+        <div class="ribbon">
+            <button class="rbtn" onclick="setCameraView('iso')">Góc 3D Iso</button>
+            <button class="rbtn" onclick="setCameraView('top')">Hình Chiếu Bằng (Top)</button>
+            <button class="rbtn" onclick="setCameraView('side')">Hình Chiếu Cạnh (Side)</button>
+            <button class="rbtn" onclick="setCameraView('front')">Hình Chiếu Đứng (Front)</button>
+            <button class="rbtn" onclick="setCameraView('bottom')">Soi Gầm & Hốc Bánh</button>
+            <button class="rbtn warn" onclick="toggleExplodeQuick()">💥 Bung / Đóng Lắp Ráp Nhanh</button>
+            <button class="rbtn action" onclick="startPickAndPlaceDemo()">🎬 Mô Phỏng Gắp Hàng</button>
+            <button class="rbtn blueprint" onclick="toggleBlueprintSheet()">📋 Mở Bản Vẽ Lắp 2D Kỹ Thuật (.IDW)</button>
+            <button class="rbtn active" onclick="exportSTL()">💾 Xuất File 3D (.STL)</button>
+        </div>
+    </div>
+
+    <div id="workspace">
+        <div id="left-panel">
+            <!-- Bật/Tắt Ký hiệu Bản vẽ Lắp -->
+            <div class="panel-box">
+                <div class="panel-title"><span>🎯 Chú Thích Bản Vẽ Lắp 3D</span></div>
+                <label class="tree-item">
+                    <span class="tree-left"><input type="checkbox" id="chk-balloons" checked onchange="updateAnnotationsVisibility()"> 🎈 Hiện Số Thứ Tự Chi Tiết (①..⑫)</span>
+                </label>
+                <label class="tree-item">
+                    <span class="tree-left"><input type="checkbox" id="chk-dims" checked onchange="updateAnnotationsVisibility()"> 📏 Hiện Đường Kích Thước 3D (mm)</span>
+                </label>
+                <label class="tree-item">
+                    <span class="tree-left"><input type="checkbox" id="chk-bom" checked onchange="toggleBOMPanel(this.checked)"> 📋 Hiện Bảng Kê Chi Tiết Lắp Ráp (BOM)</span>
+                </label>
+            </div>
+
+            <!-- Bung Lắp Ghép (Exploded View) có đường gióng trục lắp -->
+            <div class="panel-box">
+                <div class="panel-title"><span>💥 Bung Bản Vẽ Lắp (Exploded View)</span></div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Khoảng cách bung các cụm lắp:</span><span class="val" id="v-explode">0 mm (Lắp Khít)</span></div>
+                    <input type="range" id="s-explode" min="0" max="150" step="2" value="0">
+                </div>
+            </div>
+
+            <!-- Cây lắp ráp chi tiết kèm nút Soi Cận Cảnh từng bộ phận -->
+            <div class="panel-box">
+                <div class="panel-title"><span>🗂️ Cây Chi Tiết Lắp Ráp (Click "Soi" để Zoom)</span></div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('vframe', this.checked)"><span class="badge-num">1</span> Khung Sắt V Lỗ + Ke Góc M6</label>
+                    <button class="zoom-mini" onclick="focusPart('vframe')">🔍 Soi</button>
+                </div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('wheels', this.checked)"><span class="badge-num">2</span> Hốc Bánh + Mecanum 80 + Motor 1:90</label>
+                    <button class="zoom-mini" onclick="focusPart('wheel_well')">🔍 Soi</button>
+                </div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('pcb', this.checked)"><span class="badge-num">3</span> PCB 150×90mm + 4 Trụ Đồng 140×80</label>
+                    <button class="zoom-mini" onclick="focusPart('pcb')">🔍 Soi</button>
+                </div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('turntable', this.checked)"><span class="badge-num">4</span> Mâm Xoay Bi 71×71 + MG996R 360 + AS5600</label>
+                    <button class="zoom-mini" onclick="focusPart('turntable')">🔍 Soi</button>
+                </div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('arm', this.checked)"><span class="badge-num">5</span> Cánh Tay 3×MG996R 180 + Kẹp Bánh Răng</label>
+                    <button class="zoom-mini" onclick="focusPart('gripper')">🔍 Soi</button>
+                </div>
+                <div class="tree-item">
+                    <label class="tree-left"><input type="checkbox" checked onchange="toggleGroup('sensors', this.checked)"><span class="badge-num">6</span> YDLidar X2 + Siêu Âm HC-SR05</label>
+                    <button class="zoom-mini" onclick="focusPart('sensors')">🔍 Soi</button>
+                </div>
+            </div>
+
+            <!-- Chỉnh sửa thông số Khung Sắt V Lỗ & Hốc Bánh Xe -->
+            <div class="panel-box">
+                <div class="panel-title"><span>📐 Thông Số Hình Học Khung & Hốc Bánh</span></div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Chiều dài tổng thể (L):</span><span class="val" id="v-totalL">350 mm</span></div>
+                    <input type="range" id="s-totalL" min="280" max="450" step="5" value="350">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Chiều rộng phủ bì khung (W):</span><span class="val" id="v-totalW">250 mm</span></div>
+                    <input type="range" id="s-totalW" min="200" max="320" step="5" value="250">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Độ sâu rãnh hốc bánh xe tải:</span><span class="val" id="v-wellDepth">45 mm</span></div>
+                    <input type="range" id="s-wellDepth" min="25" max="55" step="5" value="45">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Chiều dài Cabin đầu xe:</span><span class="val" id="v-cabL">100 mm</span></div>
+                    <input type="range" id="s-cabL" min="80" max="150" step="5" value="100">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Chiều cao khung Cabin:</span><span class="val" id="v-cabH">100 mm</span></div>
+                    <input type="range" id="s-cabH" min="70" max="140" step="5" value="100">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>Bản rộng thanh Sắt V Lỗ:</span><span class="val" id="v-vbarSize">25 mm (V2.5)</span></div>
+                    <input type="range" id="s-vbarSize" min="20" max="30" step="1" value="25">
+                </div>
+            </div>
+
+            <!-- Điều khiển từng khớp Servo MG996R -->
+            <div class="panel-box">
+                <div class="panel-title"><span>🦾 Góc Quay 4 Khớp Servo MG996R</span></div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>1. Mâm Xoay Đế (MG996R 360° + AS5600):</span><span class="val" id="v-armYaw">0°</span></div>
+                    <input type="range" id="s-armYaw" min="0" max="360" step="1" value="0">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>2. Khớp Vai (MG996R 180° #1):</span><span class="val" id="v-armShoulder">25°</span></div>
+                    <input type="range" id="s-armShoulder" min="-45" max="90" step="1" value="25">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>3. Khớp Khuỷu (MG996R 180° #2):</span><span class="val" id="v-armElbow">55°</span></div>
+                    <input type="range" id="s-armElbow" min="-60" max="110" step="1" value="55">
+                </div>
+                <div class="ctrl-row">
+                    <div class="ctrl-label"><span>4. Ngàm Kẹp Bánh Răng (MG996R 180° #3):</span><span class="val" id="v-grip">54 mm</span></div>
+                    <input type="range" id="s-grip" min="24" max="76" step="1" value="54">
+                </div>
+            </div>
+        </div>
+
+        <div id="viewport">
+            <div id="labels-container"></div>
+
+            <!-- Bảng Kê Chi Tiết Lắp Ráp (Parts List / BOM) kiểu Inventor -->
+            <div id="right-overlay">
+                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #48586f; padding-bottom:5px;">
+                    <span style="color:#ffd32a; font-weight:bold; font-size:12px;">📋 BẢNG KÊ CHI TIẾT BẢN VẼ LẮP (PARTS LIST / BOM)</span>
+                    <span style="color:#00d8d6; font-size:10.5px;">Click dòng để Soi 3D</span>
+                </div>
+                <div id="selected-part-note" style="margin-top:6px; padding:6px 8px; background:#161d26; border-left:3px solid #0be881; font-size:11.5px; color:#d2dae2;">
+                    💡 <b>Hướng dẫn:</b> Click vào bất kỳ dòng nào trong bảng dưới đây (hoặc nhãn số <b>①..⑫</b> trên hình 3D) để Camera tự động Zoom cận cảnh vào đúng mối ghép đó!
+                </div>
+                <table class="bom-table">
+                    <thead>
+                        <tr>
+                            <th>Số</th>
+                            <th>Tên Chi Tiết / Thanh Sắt V Lỗ</th>
+                            <th>SL</th>
+                            <th>Quy Cách / Kích Thước Chuẩn</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bom-tbody"></tbody>
+                </table>
+            </div>
+
+            <div id="bottom-bar">
+                <span>🖱️ <b>Chuột trái:</b> Xoay 360° | <b>Con lăn:</b> Zoom soi từng con ốc | <b>Chuột phải:</b> Kéo dịch chuyển</span>
+                <span style="color:#ffd32a;">⚡ Kéo thanh <b>"Bung Bản Vẽ Lắp"</b> bên trái hoặc bấm nút <b>"💥 Bung / Đóng Lắp Ráp Nhanh"</b> trên cùng để xem đường gióng lắp ốc!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL BẢN VẼ KỸ THUẬT 2D 4 HÌNH CHIẾU (.IDW BLUEPRINT SHEET) -->
+    <div id="blueprint-modal">
+        <div class="sheet-frame">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #002b5c; padding-bottom:10px; margin-bottom:12px;">
+                <div>
+                    <h2 style="font-size:18px; color:#002b5c;">BẢN VẼ LẮP KỸ THUẬT 2D & SƠ ĐỒ CẮT SẮT V LỖ (TIÊU CHUẨN ISO / TCVN)</h2>
+                    <p style="font-size:12.5px; color:#334155;">Tên bản vẽ: <b>AGV_XE_TAI_DAU_VUONG_MECANUM80_MG996R.IDW</b> | Tỷ lệ: 1:1 (Đơn vị: milimét)</p>
+                </div>
+                <div style="display:flex; gap:8px;">
+                    <button class="rbtn action" onclick="window.print()">🖨️ In Bản Vẽ / Lưu PDF</button>
+                    <button class="rbtn warn" onclick="toggleBlueprintSheet()">✖ Đóng Bản Vẽ 2D (Quay lại 3D)</button>
+                </div>
+            </div>
+
+            <div class="blueprint-grid">
+                <div class="bp-box">
+                    <h4>1. HÌNH CHIẾU BẰNG KHUNG GẦM & 4 HỐC RÃNH BÁNH XE (TOP VIEW)</h4>
+                    <canvas id="cv-top" width="620" height="360"></canvas>
+                </div>
+                <div class="bp-box">
+                    <h4>2. HÌNH CHIẾU CẠNH & MẶT CẮT DỌC TRỤC CÁNH TAY (SIDE SECTION VIEW)</h4>
+                    <canvas id="cv-side" width="620" height="360"></canvas>
+                </div>
+                <div class="bp-box">
+                    <h4>3. CHI TIẾT LẮP MÂM XOAY BI SẮT 71×71 + MG996R 360° + AS5600 (DETAIL A)</h4>
+                    <canvas id="cv-turntable" width="620" height="340"></canvas>
+                </div>
+                <div class="bp-box">
+                    <h4>4. CHI TIẾT CÁC KHỚP CÁNH TAY 3×MG996R 180° & KẸP BÁNH RĂNG (DETAIL B)</h4>
+                    <canvas id="cv-arm" width="620" height="340"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let scene, camera, renderer, controls;
+        let rootAssembly, annotationsGroup, trailLinesGroup;
+        let groups = {};
+        let lidarDiskMesh, cargoBoxMesh, gripAttachmentPoint;
+        let demoActive = false, demoTime = 0;
+        let labelAnchors = [];
+
+        const cfg = {
+            totalL: 350,
+            totalW: 250,
+            wellDepth: 45,
+            wellLen: 96,
+            cabL: 100,
+            cabH: 100,
+            wallH: 50,
+            vbarSize: 25,
+            vbarThick: 2.0,
+            wheelD: 80,
+            wheelW: 38,
+            turntableSize: 71,
+            explode: 0,
+            armYaw: 0,
+            armShoulder: 25,
+            armElbow: 55,
+            gripOpen: 54,
+            showBalloons: true,
+            showDims: true
+        };
+
+        const mats = {
+            slottedSteel: new THREE.MeshStandardMaterial({ color: 0x2f3640, roughness: 0.4, metalness: 0.78 }),
+            gussetSteel: new THREE.MeshStandardMaterial({ color: 0x718093, roughness: 0.3, metalness: 0.85 }),
+            galvanized: new THREE.MeshStandardMaterial({ color: 0xd2dae2, roughness: 0.25, metalness: 0.88 }),
+            brass: new THREE.MeshStandardMaterial({ color: 0xfeca57, roughness: 0.25, metalness: 0.85 }),
+            chrome: new THREE.MeshStandardMaterial({ color: 0xf1f2f6, roughness: 0.15, metalness: 0.92 }),
+            blueMotor: new THREE.MeshStandardMaterial({ color: 0x0984e3, roughness: 0.38, metalness: 0.15 }),
+            greenMount: new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0.45, metalness: 0.1 }),
+            servoBlack: new THREE.MeshStandardMaterial({ color: 0x1e2229, roughness: 0.42, metalness: 0.2 }),
+            servoLabel: new THREE.MeshStandardMaterial({ color: 0x9b59b6, roughness: 0.3 }),
+            aluBracket: new THREE.MeshStandardMaterial({ color: 0xc8d6e5, roughness: 0.28, metalness: 0.78 }),
+            pcbGreen: new THREE.MeshStandardMaterial({ color: 0x10ac84, roughness: 0.35, metalness: 0.2 }),
+            tbRed: new THREE.MeshStandardMaterial({ color: 0xee5253, roughness: 0.4 }),
+            buckBlue: new THREE.MeshStandardMaterial({ color: 0x1e3799, roughness: 0.4 }),
+            pcaBlue: new THREE.MeshStandardMaterial({ color: 0x0652dd, roughness: 0.35 }),
+            darkIC: new THREE.MeshStandardMaterial({ color: 0x141414, roughness: 0.5 }),
+            wheelHub: new THREE.MeshStandardMaterial({ color: 0xff9f1a, roughness: 0.35, metalness: 0.2 }),
+            rubberRoller: new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.88 }),
+            whitePCB: new THREE.MeshStandardMaterial({ color: 0xf5f6fa, roughness: 0.4 })
+        };
+
+        let slottedSteelTex = null;
+        function createSlottedSteelTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#343d48';
+            ctx.fillRect(0, 0, 256, 64);
+
+            ctx.fillStyle = '#0b0e14';
+            ctx.strokeStyle = '#5c6b7f';
+            ctx.lineWidth = 2;
+            for (let x = 16; x < 256; x += 32) {
+                ctx.beginPath();
+                if ((x / 32) % 2 === 0) {
+                    ctx.roundRect(x - 10, 18, 20, 28, 8);
+                } else {
+                    ctx.arc(x, 32, 9.5, 0, Math.PI * 2);
+                }
+                ctx.fill();
+                ctx.stroke();
+            }
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.ClampToEdgeWrapping;
+            return tex;
+        }
+
+        // Dựng Thanh Sắt V Lỗ 90° + Ke Góc Tam Giác & Bu-lông M6 ở 2 đầu
+        function createSlottedVBar(len, size = cfg.vbarSize, t = cfg.vbarThick, isGray = false) {
+            const barGroup = new THREE.Group();
+            const tex = slottedSteelTex.clone();
+            tex.repeat.set(Math.max(1, len / 40), 1);
+            tex.needsUpdate = true;
+
+            const mat = new THREE.MeshStandardMaterial({
+                color: isGray ? 0x8e9eab : 0x3b4452,
+                map: tex,
+                roughness: 0.36,
+                metalness: 0.78
+            });
+
+            const flangeA = new THREE.Mesh(new THREE.BoxGeometry(len, t, size), mat);
+            flangeA.position.set(0, t / 2, size / 2);
+            barGroup.add(flangeA);
+
+            const flangeB = new THREE.Mesh(new THREE.BoxGeometry(len, size, t), mat);
+            flangeB.position.set(0, size / 2, t / 2);
+            barGroup.add(flangeB);
+
+            flangeA.add(new THREE.LineSegments(new THREE.EdgesGeometry(flangeA.geometry), new THREE.LineBasicMaterial({ color: 0x151b24 })));
+            flangeB.add(new THREE.LineSegments(new THREE.EdgesGeometry(flangeB.geometry), new THREE.LineBasicMaterial({ color: 0x151b24 })));
+
+            // Thêm bu-lông lục giác M6 + Đai ốc ở 2 đầu thanh sắt V lỗ
+            [-len / 2 + 8, len / 2 - 8].forEach(bx => {
+                const hexBolt = new THREE.Mesh(new THREE.CylinderGeometry(3.5, 3.5, 6, 6), mats.chrome);
+                hexBolt.position.set(bx, t + 1, size / 2);
+                barGroup.add(hexBolt);
+            });
+
+            return barGroup;
+        }
+
+        // Bát Ke Góc Tam Giác 3 Lỗ bắt góc Sắt V Lỗ (Corner Gusset Plate)
+        function createCornerGussetPlate(size = 38) {
+            const gGroup = new THREE.Group();
+            const plate = new THREE.Mesh(new THREE.BoxGeometry(size, 2.2, size), mats.gussetSteel);
+            plate.add(new THREE.LineSegments(new THREE.EdgesGeometry(plate.geometry), new THREE.LineBasicMaterial({ color: 0x222 })));
+            gGroup.add(plate);
+            [[-10, -10], [10, -10], [-10, 10]].forEach(([bx, bz]) => {
+                const bolt = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 3.2, 7, 6), mats.chrome);
+                bolt.position.set(bx, 2, bz);
+                gGroup.add(bolt);
+            });
+            return gGroup;
+        }
+
+        // Động cơ RC Servo MG996R chuẩn bản vẽ (40.3 x 20.0 x 36.6 mm, tai 53.6 mm, cao 47.6 mm)
+        function createMG996RServo() {
+            const servo = new THREE.Group();
+            const bodyGeo = new THREE.BoxGeometry(40.3, 36.6, 20.0);
+            const bodyMesh = new THREE.Mesh(bodyGeo, mats.servoBlack);
+            bodyMesh.position.set(-10, 36.6 / 2, 0);
+            bodyMesh.add(new THREE.LineSegments(new THREE.EdgesGeometry(bodyGeo), new THREE.LineBasicMaterial({ color: 0x455060 })));
+            servo.add(bodyMesh);
+
+            // Nhãn tím MG996R
+            const labelMesh = new THREE.Mesh(new THREE.BoxGeometry(24, 14, 20.4), mats.servoLabel);
+            labelMesh.position.set(-10, 18, 0);
+            servo.add(labelMesh);
+
+            // Tai bắt ốc 53.6 mm ở độ cao 26.6 mm + 4 ốc M3 bắt tai
+            const earsGeo = new THREE.BoxGeometry(53.6, 2.5, 19.5);
+            const earsMesh = new THREE.Mesh(earsGeo, mats.servoBlack);
+            earsMesh.position.set(-10, 26.6 + 1.25, 0);
+            servo.add(earsMesh);
+            [[-34.2, -5], [-34.2, 5], [14.2, -5], [14.2, 5]].forEach(([sx, sz]) => {
+                const screw = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 8, 8), mats.chrome);
+                screw.position.set(sx, 27.8, sz);
+                servo.add(screw);
+            });
+
+            // Cổ trục + Nhông đồng 25T + Đĩa Horn nhôm 25T
+            const boss = new THREE.Mesh(new THREE.CylinderGeometry(6, 6, 4, 20), mats.servoBlack);
+            boss.position.set(0, 38.6, 0);
+            const gear = new THREE.Mesh(new THREE.CylinderGeometry(3.0, 3.0, 7, 16), mats.brass);
+            gear.position.set(0, 44.1, 0);
+            const horn = new THREE.Mesh(new THREE.CylinderGeometry(10, 10, 2.5, 20), mats.chrome);
+            horn.position.set(0, 46.4, 0);
+            servo.add(boss, gear, horn);
+
+            return servo;
+        }
+
+        // Gá Đa Năng Ôm Thân Servo MG996R (Multi-Purpose Aluminum Bracket 58x37x26mm)
+        function createMultiPurposeServoBracket() {
+            const bGroup = new THREE.Group();
+            const shell = new THREE.Mesh(new THREE.BoxGeometry(44, 38, 23), mats.aluBracket);
+            shell.position.set(-10, 19, 0);
+            shell.add(new THREE.LineSegments(new THREE.EdgesGeometry(shell.geometry), new THREE.LineBasicMaterial({ color: 0x48586f })));
+            bGroup.add(shell);
+            return bGroup;
+        }
+
+        // Mâm Xoay Bi Sắt Vuông 71x71mm + 4 Trụ Đồng treo MG996R 360° + Cầu giữ AS5600
+        function createDetailedTurntableAssembly(size = 71, exp = 0) {
+            const ttGroup = new THREE.Group();
+
+            // 1. Tấm sắt mạ vuông dưới (71x71x2.2mm) bắt cố định vào 2 dầm nóc Cabin
+            const plateGeo = new THREE.BoxGeometry(size, 2.2, size);
+            const bottomPlate = new THREE.Mesh(plateGeo, mats.galvanized);
+            bottomPlate.position.y = 1.1;
+            bottomPlate.add(new THREE.LineSegments(new THREE.EdgesGeometry(plateGeo), new THREE.LineBasicMaterial({ color: 0x48586f })));
+            ttGroup.add(bottomPlate);
+
+            // 4 Bu-lông M4 ở 4 góc tấm dưới + 4 Trụ đồng dài 38mm thả xuống dưới để treo Gá Servo MG996R 360°!
+            const cOff = size / 2 - 6;
+            [[-cOff, -cOff], [-cOff, cOff], [cOff, -cOff], [cOff, cOff]].forEach(([bx, bz]) => {
+                const bolt = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.5, 6, 6), mats.chrome);
+                bolt.position.set(bx, 3, bz);
+                ttGroup.add(bolt);
+
+                // Trụ đồng Standoff treo khay đỡ Servo MG996R 360° bên dưới
+                const standoff = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.5, 38, 8), mats.brass);
+                standoff.position.set(bx * 0.7, -19 - exp * 0.15, bz * 0.55);
+                ttGroup.add(standoff);
+            });
+
+            // 2. Vòng rãnh bi sắt tròn chịu tải ở giữa (Pressed Ball Bearing Race)
+            const raceGeo = new THREE.TorusGeometry(size * 0.36, 3.2, 12, 32);
+            raceGeo.rotateX(Math.PI / 2);
+            const race = new THREE.Mesh(raceGeo, mats.chrome);
+            race.position.y = 4.5 + exp * 0.08;
+            ttGroup.add(race);
+
+            // 3. Tấm sắt mạ vuông trên (Xoay 360° theo trục Servo MG996R 360°)
+            const topPlate = new THREE.Mesh(plateGeo, mats.galvanized);
+            topPlate.position.y = 7.8 + exp * 0.15;
+            topPlate.rotation.y = Math.PI / 4;
+            topPlate.add(new THREE.LineSegments(new THREE.EdgesGeometry(plateGeo), new THREE.LineBasicMaterial({ color: 0x48586f })));
+            ttGroup.add(topPlate);
+
+            // 4. Khay thép đỡ Servo MG996R 360° bên dưới + Trục nối mặt bích 25T lên Tấm Trên
+            const servoSubGroup = new THREE.Group();
+            servoSubGroup.position.set(0, -39 - exp * 0.35, 0);
+            const mountTray = new THREE.Mesh(new THREE.BoxGeometry(62, 2.5, 36), mats.gussetSteel);
+            mountTray.position.set(-8, 25, 0);
+            servoSubGroup.add(mountTray);
+
+            const servo360 = createMG996RServo();
+            servoSubGroup.add(servo360);
+            ttGroup.add(servoSubGroup);
+
+            // 5. Viên nam châm tròn (Ø6x2.5mm) gắn trên đỉnh trục xoay + Cầu chữ U giữ bo AS5600 cố định phía trên!
+            const magSensorGroup = new THREE.Group();
+            magSensorGroup.position.set(0, 9 + exp * 0.25, 0);
+            const magnet = new THREE.Mesh(new THREE.CylinderGeometry(4, 4, 2.5, 16), mats.chrome);
+            magnet.position.y = 2;
+            const as5600PCB = new THREE.Mesh(new THREE.BoxGeometry(23, 2.2, 23), mats.whitePCB);
+            as5600PCB.position.y = 6.5;
+            const as5600IC = new THREE.Mesh(new THREE.BoxGeometry(6, 1.5, 5), mats.darkIC);
+            as5600IC.position.y = 5.0; // Khe hở từ 1.5mm chuẩn kỹ thuật
+            magSensorGroup.add(magnet, as5600PCB, as5600IC);
+            ttGroup.add(magSensorGroup);
+
+            return { group: ttGroup, topPlate: topPlate };
+        }
+
+        // Cụm Ngàm Kẹp Bánh Răng Song Song 4 Thanh Truyền (Parallel Gear Gripper + MG996R #3 + ESP32-CAM)
+        function createDetailedGearGripper(gripWidth = 54) {
+            const gGroup = new THREE.Group();
+
+            // Khung đế ngàm kẹp bằng nhôm CNC
+            const basePlate = new THREE.Mesh(new THREE.BoxGeometry(24, 8, 76), mats.aluBracket);
+            basePlate.position.set(0, 4, 0);
+            basePlate.add(new THREE.LineSegments(new THREE.EdgesGeometry(basePlate.geometry), new THREE.LineBasicMaterial({ color: 0x333 })));
+            gGroup.add(basePlate);
+
+            // Servo MG996R 180° #3 bắt dưới đế kẹp, trục nhông đồng quay bánh răng chủ động
+            const gripServo = createMG996RServo();
+            gripServo.position.set(10, -38, -14);
+            gGroup.add(gripServo);
+
+            // 2 Bánh răng ăn khớp đối xứng (Left Driving Spur Gear & Right Driven Spur Gear)
+            [-14, 14].forEach(zGear => {
+                const spurGear = new THREE.Mesh(new THREE.CylinderGeometry(13.5, 13.5, 4, 18), mats.brass);
+                spurGear.rotation.z = Math.PI / 2;
+                spurGear.position.set(-13, 14, zGear);
+                gGroup.add(spurGear);
+            });
+
+            // 4 Thanh liên kết hình bình hành (4-Bar Linkage Arms) + 2 Ngón kẹp có đệm cao su chống trượt
+            const fingerGeo = new THREE.BoxGeometry(16, 48, 6);
+            const fingerL = new THREE.Mesh(fingerGeo, mats.greenMount);
+            const fingerR = new THREE.Mesh(fingerGeo, mats.greenMount);
+            fingerL.position.set(0, 38, -gripWidth / 2);
+            fingerR.position.set(0, 38,  gripWidth / 2);
+
+            // Má cao su đen bên trong ngón kẹp để ép chặt thùng hàng carton
+            const padGeo = new THREE.BoxGeometry(16, 36, 2.5);
+            const padL = new THREE.Mesh(padGeo, mats.rubberRoller);
+            padL.position.set(0, 4, 4);
+            fingerL.add(padL);
+            const padR = new THREE.Mesh(padGeo, mats.rubberRoller);
+            padR.position.set(0, 4, -4);
+            fingerR.add(padR);
+
+            gGroup.add(fingerL, fingerR);
+
+            // Giá đỡ chữ L gắn Camera AI ESP32-CAM + Ống kính OV2640 ngay trên cổ tay ("Eye-in-Hand")
+            const camBracket = new THREE.Mesh(new THREE.BoxGeometry(22, 32, 30), mats.gussetSteel);
+            camBracket.position.set(-18, 12, 0);
+            const espCam = new THREE.Mesh(new THREE.BoxGeometry(5, 27, 40), mats.darkIC);
+            espCam.position.set(-30, 16, 0);
+            const lens = new THREE.Mesh(new THREE.CylinderGeometry(7, 7, 11, 16), mats.chrome);
+            lens.rotation.z = Math.PI / 2;
+            lens.position.set(-35, 20, 0);
+            gGroup.add(camBracket, espCam, lens);
+
+            return gGroup;
+        }
+
+        // Vẽ Đường Kích Thước 3D (3D CAD Dimension Line with End Ticks)
+        function createDimensionLine3D(p1, p2, labelText) {
+            const dimGroup = new THREE.Group();
+            const mat = new THREE.LineBasicMaterial({ color: 0x00d8d6 });
+            const pts = [p1, p2];
+            const geo = new THREE.BufferGeometry().setFromPoints(pts);
+            dimGroup.add(new THREE.Line(geo, mat));
+
+            const mid = new THREE.Vector3().addVectors(p1, p2).multiplyScalar(0.5);
+            labelAnchors.push({ type: 'dim', pos: mid, text: labelText });
+            return dimGroup;
+        }
+
+        // Vẽ Đường Gióng Trục Lắp Ráp Chấm Gạch (Exploded Trail Line)
+        function createExplodedTrail(p1, p2) {
+            const geo = new THREE.BufferGeometry().setFromPoints([p1, p2]);
+            const mat = new THREE.LineDashedMaterial({ color: 0xff5252, dashSize: 6, gapSize: 4 });
+            const line = new THREE.Line(geo, mat);
+            line.computeLineDistances();
+            return line;
+        }
+
+        function init() {
+            slottedSteelTex = createSlottedSteelTexture();
+            const container = document.getElementById('viewport');
+
+            scene = new THREE.Scene();
+
+            camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 1, 6000);
+            camera.position.set(-400, 300, 360);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.target.set(0, 85, 0);
+            controls.update();
+
+            scene.add(new THREE.AmbientLight(0xffffff, 0.72));
+            const keyLight = new THREE.DirectionalLight(0xffffff, 0.9);
+            keyLight.position.set(-350, 650, 450);
+            scene.add(keyLight);
+
+            const fillLight = new THREE.DirectionalLight(0x99ccff, 0.45);
+            fillLight.position.set(450, 250, -350);
+            scene.add(fillLight);
+
+            const grid = new THREE.GridHelper(900, 18, 0x00d8d6, 0x263140);
+            scene.add(grid);
+
+            rootAssembly = new THREE.Group();
+            annotationsGroup = new THREE.Group();
+            trailLinesGroup = new THREE.Group();
+            scene.add(rootAssembly, annotationsGroup, trailLinesGroup);
+
+            buildInventorAssembly();
+            bindUIEvents();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            animate();
+        }
+
+        function buildInventorAssembly() {
+            while (rootAssembly.children.length > 0) rootAssembly.remove(rootAssembly.children[0]);
+            while (annotationsGroup.children.length > 0) annotationsGroup.remove(annotationsGroup.children[0]);
+            while (trailLinesGroup.children.length > 0) trailLinesGroup.remove(trailLinesGroup.children[0]);
+            labelAnchors = [];
+
+            groups = {
+                vframe: new THREE.Group(),
+                wheels: new THREE.Group(),
+                pcb: new THREE.Group(),
+                turntable: new THREE.Group(),
+                arm: new THREE.Group(),
+                sensors: new THREE.Group()
+            };
+            Object.values(groups).forEach(g => rootAssembly.add(g));
+
+            const L = cfg.totalL;           // 350 mm
+            const W = cfg.totalW;           // 250 mm
+            const wellD = cfg.wellDepth;    // 45 mm
+            const wellL = cfg.wellLen;      // 96 mm
+            const cabL = cfg.cabL;          // 100 mm
+            const cabH = cfg.cabH;          // 100 mm
+            const wallH = cfg.wallH;        // 50 mm
+            const vS = cfg.vbarSize;        // 25 mm
+            const wheelD = cfg.wheelD;      // 80 mm
+            const wheelR = wheelD / 2;      // 40 mm
+            const wheelW = cfg.wheelW;      // 38 mm
+
+            const groundClear = 30;
+            const bayH = 45;
+            const bedY = groundClear + bayH;// 75 mm
+            const roofY = bedY + cabH;      // 175 mm
+
+            const frontX = -L / 2;
+            const rearX = L / 2;
+            const wheelFrontX = frontX + 65;
+            const wheelRearX = rearX - 65;
+            const innerW = W - 2 * wellD;   // 160 mm
+            const exp = cfg.explode;
+
+            // =========================================================================
+            // 1. KHUNG XƯƠNG SẮT V LỖ + BÁT KE GÓC TAM GIÁC + 4 HỐC RÃNH BÁNH XE
+            // =========================================================================
+            [-innerW / 2, innerW / 2 - vS].forEach(zPos => {
+                const mainRail = createSlottedVBar(L, vS);
+                mainRail.position.set(0, groundClear, zPos);
+                groups.vframe.add(mainRail);
+            });
+
+            // 4 Thanh dầm ngang dưới gầm tạo thành Vách Hốc Rãnh Bánh Xe
+            const crossXPositions = [
+                frontX + vS / 2,
+                wheelFrontX + wellL / 2 + vS / 2,
+                wheelRearX - wellL / 2 - vS / 2,
+                rearX - vS / 2
+            ];
+            crossXPositions.forEach(cx => {
+                const crossBar = createSlottedVBar(W, vS);
+                crossBar.rotation.y = Math.PI / 2;
+                crossBar.position.set(cx, groundClear, 0);
+                groups.vframe.add(crossBar);
+
+                // Ke góc tam giác 3 lỗ bắt chặt dầm ngang vào dầm dọc
+                [-innerW / 2 + 12, innerW / 2 - 12].forEach(gz => {
+                    const gusset = createCornerGussetPlate(32);
+                    gusset.position.set(cx, groundClear + 3, gz);
+                    groups.vframe.add(gusset);
+                });
+            });
+
+            // 2 Thanh dầm ngang đỡ trực tiếp 4 trụ đồng M3 (140x80mm) của Bo mạch PCB 150x90mm!
+            const pcbCenterX = frontX + cabL + 100;
+            [pcbCenterX - 70, pcbCenterX + 70].forEach(px => {
+                const pcbSupportBar = createSlottedVBar(innerW, 20, 2.0, true);
+                pcbSupportBar.rotation.y = Math.PI / 2;
+                pcbSupportBar.position.set(px, groundClear + 2, 0);
+                groups.vframe.add(pcbSupportBar);
+            });
+
+            // Dầm sườn giữa 2 bánh trước & sau
+            const midSpanLen = (wheelRearX - wheelFrontX) - wellL;
+            if (midSpanLen > 20) {
+                [-W / 2, W / 2 - vS].forEach(zOuter => {
+                    const fenderBar = createSlottedVBar(midSpanLen, vS, cfg.vbarThick, true);
+                    fenderBar.position.set((wheelFrontX + wheelRearX) / 2, groundClear, zOuter);
+                    groups.vframe.add(fenderBar);
+                });
+            }
+
+            // Tầng Sàn Thùng trên (Độ cao bedY = 75mm chạy phủ qua trên 4 Hốc Bánh Xe)
+            [-W / 2, W / 2 - vS].forEach(zOuter => {
+                const upperRail = createSlottedVBar(L, vS);
+                upperRail.position.set(0, bedY - vS, zOuter);
+                groups.vframe.add(upperRail);
+            });
+            [frontX + vS / 2, frontX + cabL, rearX - vS / 2].forEach(cx => {
+                const upperCross = createSlottedVBar(W, vS);
+                upperCross.rotation.y = Math.PI / 2;
+                upperCross.position.set(cx, bedY - vS, 0);
+                groups.vframe.add(upperCross);
+            });
+
+            // 4 Trụ đứng Cabin & Khung Dầm Nóc Cabin đỡ Mâm Xoay Bi Sắt
+            [
+                [frontX + vS / 2, -W / 2],
+                [frontX + vS / 2,  W / 2 - vS],
+                [frontX + cabL - vS / 2, -W / 2],
+                [frontX + cabL - vS / 2,  W / 2 - vS]
+            ].forEach(([px, pz]) => {
+                const post = createSlottedVBar(cabH, vS);
+                post.rotation.z = Math.PI / 2;
+                post.position.set(px, bedY + cabH / 2, pz);
+                groups.vframe.add(post);
+            });
+
+            [-W / 2, W / 2 - vS, -cfg.turntableSize / 2 - 2, cfg.turntableSize / 2 - vS + 2].forEach(zPos => {
+                const roofRail = createSlottedVBar(cabL, vS, cfg.vbarThick, true);
+                roofRail.position.set(frontX + cabL / 2, roofY - vS, zPos);
+                groups.vframe.add(roofRail);
+            });
+            [frontX + vS / 2, frontX + cabL - vS / 2].forEach(cx => {
+                const roofCross = createSlottedVBar(W, vS);
+                roofCross.rotation.y = Math.PI / 2;
+                roofCross.position.set(cx, roofY - vS, 0);
+                groups.vframe.add(roofCross);
+            });
+
+            // Khung Thành Thùng Chở Hàng Phía Sau (Cao wallH = 50mm)
+            const cargoL = L - cabL;
+            const cargoCenterX = frontX + cabL + cargoL / 2;
+            [-W / 2, W / 2 - vS].forEach(zOuter => {
+                const wallRail = createSlottedVBar(cargoL, vS);
+                wallRail.position.set(cargoCenterX, bedY + wallH - vS, zOuter);
+                groups.vframe.add(wallRail);
+
+                const rearPost = createSlottedVBar(wallH, vS);
+                rearPost.rotation.z = Math.PI / 2;
+                rearPost.position.set(rearX - vS / 2, bedY + wallH / 2, zOuter);
+                groups.vframe.add(rearPost);
+            });
+            const rearTopBar = createSlottedVBar(W, vS);
+            rearTopBar.rotation.y = Math.PI / 2;
+            rearTopBar.position.set(rearX - vS / 2, bedY + wallH - vS, 0);
+            groups.vframe.add(rearTopBar);
+
+            // =========================================================================
+            // 2. BỐN CỤM BÁNH MECANUM 80MM LỌT TRONG HỐC RÃNH + MOTOR XANH 1:90 + G140
+            // =========================================================================
+            const wheelZOffset = (W / 2) - wellD + wheelW / 2 + 5;
+            const wheelConfigs = [
+                { x: wheelFrontX, z: -wheelZOffset, side: -1, diag: true },
+                { x: wheelFrontX, z:  wheelZOffset, side:  1, diag: false },
+                { x: wheelRearX,  z: -wheelZOffset, side: -1, diag: false },
+                { x: wheelRearX,  z:  wheelZOffset, side:  1, diag: true }
+            ];
+            wheelConfigs.forEach(wc => {
+                const wAssy = new THREE.Group();
+                const expZ = wc.z + wc.side * exp * 0.55;
+                const expY = wheelR - exp * 0.25;
+                wAssy.position.set(wc.x, expY, expZ);
+
+                // Bánh Mecanum 80mm
+                const wGroup = new THREE.Group();
+                const R = wheelR;
+                const rimGeo = new THREE.CylinderGeometry(R * 0.73, R * 0.73, wheelW * 0.88, 24);
+                rimGeo.rotateX(Math.PI / 2);
+                wGroup.add(new THREE.Mesh(rimGeo, mats.wheelHub));
+                for (let i = 0; i < 9; i++) {
+                    const a = (i / 9) * Math.PI * 2;
+                    const rg = new THREE.Group();
+                    rg.position.set(Math.cos(a) * (R * 0.81), Math.sin(a) * (R * 0.81), 0);
+                    rg.rotation.z = a + Math.PI / 2;
+                    rg.rotation.x = Math.PI / 2 + (wc.diag ? Math.PI / 4 : -Math.PI / 4);
+                    rg.add(new THREE.Mesh(new THREE.CylinderGeometry(R * 0.21, R * 0.21, wheelW * 0.96, 12), mats.rubberRoller));
+                    wGroup.add(rg);
+                }
+                wAssy.add(wGroup);
+
+                // Motor xanh 1:90 + Gá G140
+                const mGroup = new THREE.Group();
+                const gBox = new THREE.Mesh(new THREE.BoxGeometry(22.5, 18.8, 42), mats.blueMotor);
+                gBox.position.set(0, 0, -wc.side * 16);
+                const dcCan = new THREE.Mesh(new THREE.CylinderGeometry(11, 11, 28, 16), mats.chrome);
+                dcCan.rotation.x = Math.PI / 2;
+                dcCan.position.set(0, 0, -wc.side * 50);
+                const g140 = new THREE.Mesh(new THREE.BoxGeometry(26.5, 23, 20), mats.greenMount);
+                g140.position.set(0, 2, -wc.side * 20);
+                mGroup.add(gBox, dcCan, g140);
+                wAssy.add(mGroup);
+
+                groups.wheels.add(wAssy);
+
+                if (exp > 2) {
+                    trailLinesGroup.add(createExplodedTrail(
+                        new THREE.Vector3(wc.x, wheelR, wc.z),
+                        new THREE.Vector3(wc.x, expY, expZ)
+                    ));
+                }
+            });
+
+            // =========================================================================
+            // 3. BO MẠCH PCB CHÍNH 150x90mm (4 LỖ GÓC 140x80mm) + KHỐI PIN 3S
+            // =========================================================================
+            const pcbY = groundClear + 16 + exp * 0.45;
+            const pcbZ = -18;
+            const pcbGroup = new THREE.Group();
+            pcbGroup.position.set(pcbCenterX, pcbY, pcbZ);
+
+            const board = new THREE.Mesh(new THREE.BoxGeometry(150, 1.6, 90), mats.pcbGreen);
+            board.add(new THREE.LineSegments(new THREE.EdgesGeometry(board.geometry), new THREE.LineBasicMaterial({ color: 0x0be881 })));
+            pcbGroup.add(board);
+
+            [[-70, -40], [70, -40], [-70, 40], [70, 40]].forEach(([hx, hz]) => {
+                const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 3.2, 2.2, 16), mats.brass);
+                pad.position.set(hx, 0, hz);
+                const st = new THREE.Mesh(new THREE.CylinderGeometry(2.8, 2.8, 12, 6), mats.brass);
+                st.position.set(hx, -6.8, hz);
+                pcbGroup.add(pad, st);
+                if (exp > 2) {
+                    trailLinesGroup.add(createExplodedTrail(
+                        new THREE.Vector3(pcbCenterX + hx, groundClear + 4, pcbZ + hz),
+                        new THREE.Vector3(pcbCenterX + hx, pcbY, pcbZ + hz)
+                    ));
+                }
+            });
+
+            // Linh kiện trên PCB theo đúng Altium 3D
+            const s3 = new THREE.Mesh(new THREE.BoxGeometry(28, 13, 62), mats.darkIC);
+            s3.position.set(0, 7.5, -2);
+            const pca = new THREE.Mesh(new THREE.BoxGeometry(25, 11, 62), mats.pcaBlue);
+            pca.position.set(54, 6.3, -5);
+            pcbGroup.add(s3, pca);
+            [-18, 8].forEach(zPos => {
+                const tb = new THREE.Mesh(new THREE.BoxGeometry(21, 10, 21), mats.tbRed);
+                tb.position.set(-46, 5.8, zPos);
+                pcbGroup.add(tb);
+            });
+            [-42, 42].forEach(xPos => {
+                const buck = new THREE.Mesh(new THREE.BoxGeometry(43, 12, 21), mats.buckBlue);
+                buck.position.set(xPos, 6.8, 32);
+                pcbGroup.add(buck);
+            });
+            groups.pcb.add(pcbGroup);
+
+            // Khối Pin Li-ion 3S 12V
+            const batMesh = new THREE.Mesh(new THREE.BoxGeometry(105, 25, 58), mats.blueMotor);
+            batMesh.position.set(pcbCenterX, groundClear + 18 + exp * 0.45, 62);
+            groups.pcb.add(batMesh);
+
+            // =========================================================================
+            // 4. CỤM MÂM XOAY BI SẮT VUÔNG (71x71mm) + MG996R 360° + CẢM BIẾN AS5600
+            // =========================================================================
+            const armBaseX = frontX + 45;
+            const armBaseZ = 0;
+            const ttY = roofY + exp * 0.65;
+
+            const ttObj = createDetailedTurntableAssembly(cfg.turntableSize, exp);
+            ttObj.group.position.set(armBaseX, ttY, armBaseZ);
+            groups.turntable.add(ttObj.group);
+
+            if (exp > 2) {
+                trailLinesGroup.add(createExplodedTrail(
+                    new THREE.Vector3(armBaseX, roofY - 20, armBaseZ),
+                    new THREE.Vector3(armBaseX, ttY + 95, armBaseZ)
+                ));
+            }
+
+            // =========================================================================
+            // 5. CÁNH TAY ROBOT 3×MG996R 180° + GÁ ĐA NĂNG + KẸP BÁNH RĂNG + ESP32-CAM
+            // =========================================================================
+            const yawGroup = new THREE.Group();
+            yawGroup.position.set(armBaseX, roofY + 12 + exp * 1.15, armBaseZ);
+            yawGroup.rotation.y = -THREE.MathUtils.degToRad(cfg.armYaw);
+            ttObj.topPlate.rotation.y = Math.PI / 4 - THREE.MathUtils.degToRad(cfg.armYaw);
+            groups.arm.add(yawGroup);
+
+            // Gá chữ U đế + Gá đa năng giữ Servo MG996R 180° #1 (Khớp Vai)
+            const shoulderBracket = createMultiPurposeServoBracket();
+            shoulderBracket.rotation.x = Math.PI / 2;
+            shoulderBracket.position.set(10, 28, -23);
+            yawGroup.add(shoulderBracket);
+
+            const shoulderServo = createMG996RServo();
+            shoulderServo.rotation.x = Math.PI / 2;
+            shoulderServo.position.set(10, 28, -23);
+            yawGroup.add(shoulderServo);
+
+            const shoulderPivot = new THREE.Group();
+            shoulderPivot.position.set(0, 28, 0);
+            shoulderPivot.rotation.z = THREE.MathUtils.degToRad(cfg.armShoulder);
+            yawGroup.add(shoulderPivot);
+
+            // Cánh tay đòn 1 (2 thanh U nhôm dài 105mm nối từ Vai lên Khuỷu)
+            const link1Len = 105;
+            [-14, 14].forEach(zSide => {
+                const armPlate = new THREE.Mesh(new THREE.BoxGeometry(22, link1Len + 16, 3), mats.aluBracket);
+                armPlate.position.set(0, link1Len / 2, zSide);
+                armPlate.add(new THREE.LineSegments(new THREE.EdgesGeometry(armPlate.geometry), new THREE.LineBasicMaterial({ color: 0x333 })));
+                shoulderPivot.add(armPlate);
+            });
+
+            // Khớp Khuỷu (MG996R 180° #2 + Gá đa năng)
+            const elbowPivot = new THREE.Group();
+            elbowPivot.position.set(0, link1Len, 0);
+            elbowPivot.rotation.z = THREE.MathUtils.degToRad(cfg.armElbow);
+            shoulderPivot.add(elbowPivot);
+
+            const elbowBracket = createMultiPurposeServoBracket();
+            elbowBracket.rotation.x = Math.PI / 2;
+            elbowBracket.position.set(10, 0, -23);
+            elbowPivot.add(elbowBracket);
+
+            const elbowServo = createMG996RServo();
+            elbowServo.rotation.x = Math.PI / 2;
+            elbowServo.position.set(10, 0, -23);
+            elbowPivot.add(elbowServo);
+
+            // Cánh tay đòn 2 (Dài 95mm nối từ Khuỷu tới Cụm Kẹp Bánh Răng)
+            const link2Len = 95;
+            [-12, 12].forEach(zSide => {
+                const link2Plate = new THREE.Mesh(new THREE.BoxGeometry(18, link2Len + 12, 3), mats.aluBracket);
+                link2Plate.position.set(0, link2Len / 2, zSide);
+                link2Plate.add(new THREE.LineSegments(new THREE.EdgesGeometry(link2Plate.geometry), new THREE.LineBasicMaterial({ color: 0x333 })));
+                elbowPivot.add(link2Plate);
+            });
+
+            // Cụm Cổ Tay + Kẹp Bánh Răng Song Song + MG996R #3 + ESP32-CAM
+            const wristGroup = createDetailedGearGripper(cfg.gripOpen);
+            wristGroup.position.set(0, link2Len + exp * 0.25, 0);
+            elbowPivot.add(wristGroup);
+
+            gripAttachmentPoint = new THREE.Group();
+            gripAttachmentPoint.position.set(0, 62, 0);
+            wristGroup.add(gripAttachmentPoint);
+
+            // =========================================================================
+            // 6. CẢM BIẾN YDLIDAR X2 & SIÊU ÂM HC-SR05
+            // =========================================================================
+            const lidarX = frontX + 45;
+            const lidarZ = -W / 2 + 45;
+            const lidarAssy = new THREE.Group();
+            lidarAssy.position.set(lidarX, roofY + exp * 0.5, lidarZ);
+            [[-16, -16], [-16, 16], [16, -16], [16, 16]].forEach(([px, pz]) => {
+                const st = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 30, 8), mats.brass);
+                st.position.set(px, 15, pz);
+                lidarAssy.add(st);
+            });
+            const lidarBaseMesh = new THREE.Mesh(new THREE.CylinderGeometry(28, 30, 18, 24), mats.servoBlack);
+            lidarBaseMesh.position.y = 39;
+            lidarDiskMesh = new THREE.Mesh(new THREE.CylinderGeometry(27, 27, 16, 24), mats.buckBlue);
+            lidarDiskMesh.position.y = 56;
+            lidarAssy.add(lidarBaseMesh, lidarDiskMesh);
+            groups.sensors.add(lidarAssy);
+
+            const hcsr = new THREE.Group();
+            hcsr.position.set(frontX - 4 - exp * 0.3, groundClear + bayH / 2 + 8, 0);
+            hcsr.add(new THREE.Mesh(new THREE.BoxGeometry(3, 20, 45), mats.buckBlue));
+            [-13, 13].forEach(zEye => {
+                const eye = new THREE.Mesh(new THREE.CylinderGeometry(8, 8, 12, 16), mats.chrome);
+                eye.rotation.z = Math.PI / 2;
+                eye.position.set(-6, 0, zEye);
+                hcsr.add(eye);
+            });
+            groups.sensors.add(hcsr);
+
+            cargoBoxMesh = new THREE.Group();
+            cargoBoxMesh.add(new THREE.Mesh(new THREE.BoxGeometry(52, 52, 52), new THREE.MeshStandardMaterial({ color: 0xd35400, roughness: 0.7 })));
+            cargoBoxMesh.add(new THREE.Mesh(new THREE.BoxGeometry(32, 32, 54), mats.whitePCB));
+            if (!demoActive) cargoBoxMesh.position.set(frontX - 85, 78, 0);
+            groups.sensors.add(cargoBoxMesh);
+
+            // =========================================================================
+            // 7. ĐƯỜNG KÍCH THƯỚC 3D & BONG BÓNG SỐ THỨ TỰ CHI TIẾT (①..⑫)
+            // =========================================================================
+            annotationsGroup.add(createDimensionLine3D(
+                new THREE.Vector3(frontX, 5, W / 2 + 48),
+                new THREE.Vector3(rearX, 5, W / 2 + 48),
+                `L = ${L} mm (${(L/10).toFixed(1)} cm)`
+            ));
+            annotationsGroup.add(createDimensionLine3D(
+                new THREE.Vector3(rearX + 35, 5, -W / 2),
+                new THREE.Vector3(rearX + 35, 5, W / 2),
+                `W = ${W} mm (${(W/10).toFixed(1)} cm)`
+            ));
+            annotationsGroup.add(createDimensionLine3D(
+                new THREE.Vector3(frontX - 30, 0, -W / 2),
+                new THREE.Vector3(frontX - 30, roofY, -W / 2),
+                `H_cabin = ${roofY} mm`
+            ));
+            annotationsGroup.add(createDimensionLine3D(
+                new THREE.Vector3(wheelFrontX, 5, -W / 2 - 42),
+                new THREE.Vector3(wheelRearX, 5, -W / 2 - 42),
+                `Trục cơ sở = ${L - 130} mm`
+            ));
+
+            // 12 Bong bóng đánh số chi tiết lắp ráp (Balloon Callouts)
+            const balloons = [
+                { num: 1, title: "① Dầm dọc Sắt V Lỗ (Tạo Hốc Bánh)", pos: new THREE.Vector3(0, groundClear + 10, innerW / 2), target: 'vframe' },
+                { num: 2, title: "② Hốc Rãnh Bánh Xe Tải (Sâu 45×96mm)", pos: new THREE.Vector3(wheelFrontX, bedY, W / 2), target: 'wheel_well' },
+                { num: 3, title: "③ Bánh Mecanum 80mm (Khớp TT)", pos: new THREE.Vector3(wheelFrontX, wheelR, wheelZOffset + 22), target: 'wheel_well' },
+                { num: 4, title: "④ Motor Xanh 1:90 Kim Loại + Gá G140", pos: new THREE.Vector3(wheelRearX, wheelR + 12, wheelZOffset - 25), target: 'wheel_well' },
+                { num: 5, title: "⑤ Bo Mạch PCB 150×90mm (Lỗ M3 140×80)", pos: new THREE.Vector3(pcbCenterX, pcbY + 18, pcbZ), target: 'pcb' },
+                { num: 6, title: "⑥ Mâm Xoay Bi Sắt Vuông 71×71mm (3 Inch)", pos: new THREE.Vector3(armBaseX + 36, ttY + 6, 36), target: 'turntable' },
+                { num: 7, title: "⑦ Servo MG996R 360° (Treo dưới Mâm Xoay)", pos: new THREE.Vector3(armBaseX - 25, ttY - 28, 20), target: 'turntable' },
+                { num: 8, title: "⑧ Cảm Biến Góc Từ AS5600 + Nam Châm Ø6", pos: new THREE.Vector3(armBaseX, ttY + 20, -24), target: 'turntable' },
+                { num: 9, title: "⑨ Khớp Vai & Khuỷu (2×MG996R 180°)", pos: new THREE.Vector3(armBaseX, ttY + 85 + exp * 0.5, 30), target: 'turntable' },
+                { num: 10, title: "⑩ Ngàm Kẹp Bánh Răng + MG996R 180° #3", pos: new THREE.Vector3(armBaseX - 50, ttY + 195 + exp * 0.6, 0), target: 'gripper' },
+                { num: 11, title: "⑪ Camera AI ESP32-CAM (Gắn Cổ Tay)", pos: new THREE.Vector3(armBaseX - 65, ttY + 165 + exp * 0.6, -20), target: 'gripper' },
+                { num: 12, title: "⑫ Cảm Biến YDLidar X2 + Siêu Âm HC-SR05", pos: new THREE.Vector3(lidarX, roofY + 62 + exp * 0.5, lidarZ), target: 'sensors' }
+            ];
+            balloons.forEach(b => labelAnchors.push({ type: 'balloon', ...b }));
+
+            rebuildHTMLOverlays();
+            populateBOMTable(L, W, innerW, cabL, cabH, cargoL, wallH);
+        }
+
+        function rebuildHTMLOverlays() {
+            const container = document.getElementById('labels-container');
+            container.innerHTML = '';
+            labelAnchors.forEach((item, idx) => {
+                const div = document.createElement('div');
+                if (item.type === 'balloon') {
+                    div.className = 'balloon-label';
+                    div.innerText = item.title;
+                    div.onclick = () => focusPart(item.target, item.title);
+                } else {
+                    div.className = 'dim-label';
+                    div.innerText = item.text;
+                }
+                item.dom = div;
+                container.appendChild(div);
+            });
+            updateAnnotationsVisibility();
+        }
+
+        function updateAnnotationsVisibility() {
+            const showB = document.getElementById('chk-balloons').checked;
+            const showD = document.getElementById('chk-dims').checked;
+            annotationsGroup.visible = showD;
+            labelAnchors.forEach(item => {
+                if (!item.dom) return;
+                if (item.type === 'balloon') item.dom.style.display = showB ? 'block' : 'none';
+                if (item.type === 'dim') item.dom.style.display = showD ? 'block' : 'none';
+            });
+        }
+
+        function updateLabelsScreenPosition() {
+            const container = document.getElementById('viewport');
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            labelAnchors.forEach(item => {
+                if (!item.dom || item.dom.style.display === 'none') return;
+                const v = item.pos.clone().project(camera);
+                if (v.z > 1) {
+                    item.dom.style.visibility = 'hidden';
+                } else {
+                    item.dom.style.visibility = 'visible';
+                    item.dom.style.left = `${(v.x * 0.5 + 0.5) * w}px`;
+                    item.dom.style.top = `${(-v.y * 0.5 + 0.5) * h}px`;
+                }
+            });
+        }
+
+        function populateBOMTable(L, W, innerW, cabL, cabH, cargoL, wallH) {
+            const rows = [
+                { num: "①", name: "Thanh dầm dọc gầm chính (Tạo hốc bánh)", qty: "02 thanh", spec: `Sắt V lỗ ${cfg.vbarSize}×${cfg.vbarSize} - Cắt dài ${L} mm (Lọt lòng ${innerW} mm)`, target: "vframe" },
+                { num: "②", name: "Thanh dầm dọc sàn trên & Vòm hốc bánh", qty: "02 thanh", spec: `Sắt V lỗ ${cfg.vbarSize}×${cfg.vbarSize} - Cắt dài ${L} mm (Hốc bánh sâu ${cfg.wellDepth}×96 mm)`, target: "wheel_well" },
+                { num: "③", name: "Thanh dầm ngang Khung Gầm, Sàn & Nóc Cabin", qty: "09 thanh", spec: `Sắt V lỗ ${cfg.vbarSize}×${cfg.vbarSize} - Cắt dài ${W} mm`, target: "vframe" },
+                { num: "④", name: "Trụ đứng Cabin (×4) & Trụ đuôi thùng (×2)", qty: "06 thanh", spec: `4 thanh dài ${cabH} mm + 2 thanh dài ${wallH} mm + Ke góc M6`, target: "vframe" },
+                { num: "⑤", name: "Bánh xe đa hướng Mecanum 80mm Khớp TT", qty: "04 bánh", spec: `Ø80 × 38 mm (2 bánh Trái + 2 bánh Phải xếp chữ X)`, target: "wheel_well" },
+                { num: "⑥", name: "Động cơ xanh 1:90 kim loại + Gá chữ U G140", qty: "04 bộ", spec: `42×22.5×18.8 mm, 2 lỗ M3×30mm cách nhau 17.5 mm`, target: "wheel_well" },
+                { num: "⑦", name: "Bo mạch PCB Chính + 4 Trụ đồng M3×12mm", qty: "01 bo", spec: `FR4 150.0 × 90.0 mm (Tâm 4 lỗ bắt ốc góc: 140.0 × 80.0 mm)`, target: "pcb" },
+                { num: "⑧", name: "Mâm xoay bằng sắt mạ có bi vuông (3 Inch)", qty: "01 cái", spec: `${cfg.turntableSize} × ${cfg.turntableSize} × 8 mm (Chịu tải chính cho Đế Cánh Tay)`, target: "turntable" },
+                { num: "⑨", name: "Động cơ RC Servo MG996R Góc Xoay 360°", qty: "01 cái", spec: `40.3×20×36.6 mm (Tai 53.6 mm) - Treo trên 4 trụ đồng dưới Mâm Xoay`, target: "turntable" },
+                { num: "⑩", name: "Cảm biến góc từ tính AS5600 + Nam châm Ø6", qty: "01 bộ", spec: `23×23 mm (I2C 0x36) - Đặt cách nam châm trục xoay 1.5 mm`, target: "turntable" },
+                { num: "⑪", name: "Động cơ RC Servo MG996R Góc 180° + Bộ Gá U", qty: "03 bộ", spec: `Khớp Vai (#1) + Khớp Khuỷu (#2) + Ngàm Kẹp Bánh Răng (#3)`, target: "gripper" },
+                { num: "⑫", name: "ESP32-CAM + YDLidar X2 + Siêu âm HC-SR05", qty: "01 bộ", spec: `ESP32-CAM trên cổ tay | YDLidar X2 nóc trái | HC-SR05 cản trước`, target: "sensors" }
+            ];
+
+            const tbody = document.getElementById('bom-tbody');
+            tbody.innerHTML = '';
+            rows.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td style="text-align:center; font-weight:bold; color:#ffa801;">${r.num}</td><td><b>${r.name}</b></td><td style="text-align:center; color:#0be881; font-weight:bold;">${r.qty}</td><td>${r.spec}</td>`;
+                tr.onclick = () => focusPart(r.target, `${r.num} ${r.name}: ${r.spec}`);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function focusPart(target, noteText) {
+            const frontX = -cfg.totalL / 2;
+            const wheelFrontX = frontX + 65;
+            const pcbCenterX = frontX + cfg.cabL + 100;
+            const roofY = 75 + cfg.cabH;
+
+            if (noteText) {
+                document.getElementById('selected-part-note').innerHTML = `🔍 <b>Đang soi chi tiết:</b> <span style="color:#ffd32a;">${noteText}</span>`;
+            }
+
+            if (target === 'wheel_well') {
+                camera.position.set(wheelFrontX - 110, 65, 210);
+                controls.target.set(wheelFrontX, 45, cfg.totalW / 2 - 20);
+            } else if (target === 'pcb') {
+                if (cfg.explode < 45) {
+                    cfg.explode = 60;
+                    document.getElementById('s-explode').value = 60;
+                    document.getElementById('v-explode').innerText = "60 mm (Đang Bung)";
+                    buildInventorAssembly();
+                }
+                camera.position.set(pcbCenterX - 90, 190, 175);
+                controls.target.set(pcbCenterX, 55, -15);
+            } else if (target === 'turntable') {
+                camera.position.set(frontX - 125, roofY + 60, 145);
+                controls.target.set(frontX + 45, roofY + 10, 0);
+            } else if (target === 'gripper') {
+                camera.position.set(frontX - 150, roofY + 230, 140);
+                controls.target.set(frontX + 20, roofY + 185, 0);
+            } else if (target === 'sensors') {
+                camera.position.set(frontX - 160, roofY + 60, -160);
+                controls.target.set(frontX + 30, roofY, -60);
+            } else {
+                camera.position.set(-390, 290, 350);
+                controls.target.set(0, 80, 0);
+            }
+            controls.update();
+        }
+
+        function toggleExplodeQuick() {
+            cfg.explode = (cfg.explode > 10) ? 0 : 85;
+            document.getElementById('s-explode').value = cfg.explode;
+            document.getElementById('v-explode').innerText = `${cfg.explode} mm ${cfg.explode === 0 ? '(Lắp Khít)' : '(Đang Bung)'}`;
+            buildInventorAssembly();
+        }
+
+        function toggleBOMPanel(show) {
+            document.getElementById('right-overlay').style.display = show ? 'block' : 'none';
+        }
+
+        function toggleBlueprintSheet() {
+            const modal = document.getElementById('blueprint-modal');
+            if (modal.style.display === 'block') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'block';
+                draw2DBlueprintSheets();
+            }
+        }
+
+        // Vẽ 4 Bản Vẽ Lắp 2D Kỹ Thuật Chuẩn Kỹ Sư (.IDW Blueprint Sheets) bằng Canvas 2D
+        function draw2DBlueprintSheets() {
+            // 1. Hình chiếu bằng Khung Gầm & 4 Hốc Rãnh Bánh Xe
+            const cTop = document.getElementById('cv-top');
+            const ctx1 = cTop.getContext('2d');
+            ctx1.clearRect(0, 0, 620, 360);
+            ctx1.fillStyle = '#ffffff';
+            ctx1.fillRect(0, 0, 620, 360);
+
+            const ox = 110, oy = 55; // Scale 1.15 px/mm
+            const sc = 1.15;
+            const L = cfg.totalL * sc, W = cfg.totalW * sc, wD = cfg.wellDepth * sc, wL = cfg.wellLen * sc;
+
+            // Vẽ khung bao 350 x 250 mm
+            ctx1.strokeStyle = '#002b5c';
+            ctx1.lineWidth = 2.5;
+            ctx1.strokeRect(ox, oy, L, W);
+
+            // Vẽ 2 dầm dọc chính thu hẹp vào trong (Tạo 4 Hốc Bánh Xe sâu 45mm)
+            ctx1.fillStyle = '#cbd5e1';
+            ctx1.fillRect(ox, oy + wD, L, 18);
+            ctx1.fillRect(ox, oy + W - wD - 18, L, 18);
+            ctx1.strokeRect(ox, oy + wD, L, 18);
+            ctx1.strokeRect(ox, oy + W - wD - 18, L, 18);
+
+            // Vẽ 4 Hốc Rãnh Bánh Xe + 4 Bánh Mecanum 80x38mm + 4 Motor Xanh 1:90
+            const wfX = ox + 65 * sc, wrX = ox + (cfg.totalL - 65) * sc;
+            [[wfX, oy + 4], [wfX, oy + W - 44], [wrX, oy + 4], [wrX, oy + W - 44]].forEach(([wx, wy], i) => {
+                ctx1.fillStyle = '#fed7aa';
+                ctx1.fillRect(wx - 40 * sc, wy, 80 * sc, 38 * sc);
+                ctx1.strokeRect(wx - 40 * sc, wy, 80 * sc, 38 * sc);
+                // Motor xanh 1:90 nối vào trong
+                ctx1.fillStyle = '#93c5fd';
+                const my = (i % 2 === 0) ? wy + 40 * sc : wy - 48 * sc;
+                ctx1.fillRect(wx - 11 * sc, my, 22 * sc, 45 * sc);
+                ctx1.strokeRect(wx - 11 * sc, my, 22 * sc, 45 * sc);
+            });
+
+            // Vẽ Bo mạch PCB 150x90mm (4 lỗ góc 140x80mm)
+            const pcbX = ox + (cfg.cabL + 25) * sc, pcbY = oy + (cfg.totalW - 90) / 2 * sc;
+            ctx1.fillStyle = '#bbf7d0';
+            ctx1.fillRect(pcbX, pcbY, 150 * sc, 90 * sc);
+            ctx1.strokeRect(pcbX, pcbY, 150 * sc, 90 * sc);
+            ctx1.fillStyle = '#002b5c';
+            ctx1.font = 'bold 11px Consolas';
+            ctx1.fillText('PCB 150×90mm (Lỗ M3: 140×80mm)', pcbX + 8, pcbY + 50);
+            ctx1.fillText(`← Chiều dài tổng L = ${cfg.totalL} mm →`, ox + 115, oy + W + 28);
+            ctx1.fillText(`↑ Rộng W = ${cfg.totalW} mm ↓`, 6, oy + W / 2);
+            ctx1.fillText(`Hốc bánh: Sâu ${cfg.wellDepth}×96mm`, ox + 8, oy - 10);
+
+            // 2. Hình chiếu cạnh & Mặt cắt dọc
+            const cSide = document.getElementById('cv-side');
+            const ctx2 = cSide.getContext('2d');
+            ctx2.fillStyle = '#ffffff';
+            ctx2.fillRect(0, 0, 620, 360);
+            ctx2.strokeStyle = '#002b5c';
+            ctx2.lineWidth = 2;
+            const gY = 310;
+            // Mặt đất
+            ctx2.beginPath(); ctx2.moveTo(40, gY); ctx2.lineTo(580, gY); ctx2.stroke();
+            // Khung gầm (cao 30..75mm)
+            ctx2.fillStyle = '#e2e8f0';
+            ctx2.fillRect(ox, gY - 75 * sc, L, 45 * sc);
+            ctx2.strokeRect(ox, gY - 75 * sc, L, 45 * sc);
+            // Cabin (100x100mm)
+            ctx2.fillStyle = '#dbeafe';
+            ctx2.fillRect(ox, gY - 175 * sc, cfg.cabL * sc, 100 * sc);
+            ctx2.strokeRect(ox, gY - 175 * sc, cfg.cabL * sc, 100 * sc);
+            // Thành thùng (250x50mm)
+            ctx2.fillStyle = '#f1f5f9';
+            ctx2.fillRect(ox + cfg.cabL * sc, gY - 125 * sc, (cfg.totalL - cfg.cabL) * sc, 50 * sc);
+            ctx2.strokeRect(ox + cfg.cabL * sc, gY - 125 * sc, (cfg.totalL - cfg.cabL) * sc, 50 * sc);
+            // 2 Bánh xe 80mm
+            [wfX, wrX].forEach(wx => {
+                ctx2.beginPath();
+                ctx2.arc(wx, gY - 40 * sc, 40 * sc, 0, Math.PI * 2);
+                ctx2.fillStyle = 'rgba(255, 159, 26, 0.45)';
+                ctx2.fill();
+                ctx2.stroke();
+            });
+            ctx2.fillStyle = '#002b5c';
+            ctx2.font = 'bold 11px Consolas';
+            ctx2.fillText('Nóc Cabin (Cao 175mm) -> Gắn Mâm Xoay Bi + Cánh Tay MG996R', ox, gY - 185 * sc);
+            ctx2.fillText('Khoang gầm kỹ thuật (Cao 45mm) | Gầm thoáng 30mm', ox + 115, gY - 48 * sc);
+
+            // 3. Bản vẽ Chi Tiết A: Lắp ghép Mâm Xoay Bi Sắt 71x71mm + MG996R 360° + AS5600
+            const cTT = document.getElementById('cv-turntable');
+            const ctx3 = cTT.getContext('2d');
+            ctx3.fillStyle = '#ffffff';
+            ctx3.fillRect(0, 0, 620, 340);
+            ctx3.strokeStyle = '#002b5c';
+            ctx3.lineWidth = 2;
+            ctx3.font = 'bold 12px Segoe UI';
+            ctx3.fillStyle = '#002b5c';
+            ctx3.fillText('MẶT CẮT LẮP GHÉP ĐỒNG TRỤC: MÂM XOAY SẮT BI 71×71 + MG996R 360° + AS5600', 45, 28);
+
+            // Vẽ mặt cắt chi tiết cụm mâm xoay
+            ctx3.fillStyle = '#cbd5e1';
+            ctx3.fillRect(160, 95, 280, 12); // Tấm trên mâm xoay
+            ctx3.strokeRect(160, 95, 280, 12);
+            ctx3.fillRect(160, 125, 280, 12); // Tấm dưới mâm xoay bắt lên dầm Sắt V lỗ
+            ctx3.strokeRect(160, 125, 280, 12);
+            // Bi sắt ở giữa
+            [205, 395].forEach(bx => {
+                ctx3.beginPath(); ctx3.arc(bx, 116, 8, 0, Math.PI * 2);
+                ctx3.fillStyle = '#f59e0b'; ctx3.fill(); ctx3.stroke();
+            });
+            // Servo MG996R 360 treo dưới trên 4 trụ đồng M4x38mm
+            ctx3.fillStyle = '#334155';
+            ctx3.fillRect(240, 185, 120, 95);
+            ctx3.strokeRect(240, 185, 120, 95);
+            ctx3.fillStyle = '#ffffff';
+            ctx3.fillText('SERVO MG996R 360°', 248, 235);
+            ctx3.fillText('(40.3 × 20 × 36.6 mm)', 246, 255);
+            // Trục nhông đồng 25T xuyên lên tâm + Nam châm + AS5600
+            ctx3.fillStyle = '#f59e0b';
+            ctx3.fillRect(290, 82, 20, 103);
+            ctx3.strokeRect(290, 82, 20, 103);
+            // Nam châm Ø6mm + AS5600 phía trên
+            ctx3.fillStyle = '#ef4444';
+            ctx3.fillRect(286, 72, 28, 9);
+            ctx3.fillStyle = '#10b981';
+            ctx3.fillRect(255, 50, 90, 10);
+            ctx3.strokeRect(255, 50, 90, 10);
+            ctx3.fillStyle = '#002b5c';
+            ctx3.font = 'bold 11px Consolas';
+            ctx3.fillText('← Bo mạch AS5600 (I2C 0x36) úp xuống', 355, 58);
+            ctx3.fillText('← Nam châm Ø6×2.5mm (Khe hở 1.5mm)', 355, 79);
+            ctx3.fillText('← Vòng bi sắt chịu tải 100% sức nặng tay gắp', 448, 118);
+
+            // 4. Bản vẽ Chi Tiết B: Sơ đồ lắp 3 Khớp Cánh Tay MG996R 180° & Kẹp Bánh Răng
+            const cArm = document.getElementById('cv-arm');
+            const ctx4 = cArm.getContext('2d');
+            ctx4.fillStyle = '#ffffff';
+            ctx4.fillRect(0, 0, 620, 340);
+            ctx4.fillStyle = '#002b5c';
+            ctx4.font = 'bold 12px Segoe UI';
+            ctx4.fillText('SƠ ĐỒ LẮP RÁP 3 KHỚP SERVO MG996R 180° (VAI - KHUỶU - KẸP) & ESP32-CAM', 45, 28);
+            ctx4.font = '12px Consolas';
+            const guideLines = [
+                "• Khớp 1 (Đế Xoay - Kênh 0 PCA9685): 01× Servo MG996R 360° + Mâm xoay sắt bi 71×71mm + AS5600.",
+                "• Khớp 2 (Khớp Vai - Kênh 1 PCA9685): 01× Servo MG996R 180° lắp trên Gá Đa Năng nhôm (Cao 32mm).",
+                "• Tay Đòn 1 (Upper Arm Link): 02× Thanh nhôm đục lỗ dài 105 mm nối từ trục Vai lên trục Khuỷu.",
+                "• Khớp 3 (Khớp Khuỷu - Kênh 2 PCA9685): 01× Servo MG996R 180° nâng/hạ cẳng tay.",
+                "• Tay Đòn 2 (Forearm Link): 02× Thanh nhôm dài 95 mm nối từ Khuỷu tới Cụm Cổ Tay.",
+                "• Khớp 4 (Ngàm Kẹp - Kênh 3 PCA9685): 01× Servo MG996R 180° kéo cặp bánh răng mở 24..76 mm.",
+                "• Camera AI ESP32-CAM: Bắt trên giá chữ L ngay sát trên cụm ngàm kẹp (Góc nhìn Eye-in-Hand).",
+                "• Khoảng cách tâm 4 lỗ bắt ốc tai Servo MG996R: Dọc 48.5 mm × Ngang 10.0 mm (Dùng ốc M3×10mm)."
+            ];
+            guideLines.forEach((line, i) => {
+                ctx4.fillText(line, 25, 68 + i * 32);
+            });
+        }
+
+        function toggleGroup(name, visible) {
+            if (groups[name]) groups[name].visible = visible;
+        }
+
+        function bindUIEvents() {
+            const bindings = [
+                ['s-explode', 'explode', 'v-explode', v => `${v} mm ${v == 0 ? '(Lắp Khít)' : '(Đang Bung)'}`],
+                ['s-totalL', 'totalL', 'v-totalL', v => `${v} mm`],
+                ['s-totalW', 'totalW', 'v-totalW', v => `${v} mm`],
+                ['s-wellDepth', 'wellDepth', 'v-wellDepth', v => `${v} mm`],
+                ['s-cabL', 'cabL', 'v-cabL', v => `${v} mm`],
+                ['s-cabH', 'cabH', 'v-cabH', v => `${v} mm`],
+                ['s-vbarSize', 'vbarSize', 'v-vbarSize', v => `${v} mm`],
+                ['s-armYaw', 'armYaw', 'v-armYaw', v => `${v}°`],
+                ['s-armShoulder', 'armShoulder', 'v-armShoulder', v => `${v}°`],
+                ['s-armElbow', 'armElbow', 'v-armElbow', v => `${v}°`],
+                ['s-grip', 'gripOpen', 'v-grip', v => `${v} mm`]
+            ];
+
+            bindings.forEach(([id, key, valId, fmt]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener('input', e => {
+                    demoActive = false;
+                    cfg[key] = parseFloat(e.target.value);
+                    document.getElementById(valId).innerText = fmt(cfg[key]);
+                    buildInventorAssembly();
+                });
+            });
+        }
+
+        function setCameraView(mode) {
+            if (mode === 'iso') {
+                camera.position.set(-400, 300, 360);
+                controls.target.set(0, 85, 0);
+            } else if (mode === 'top') {
+                camera.position.set(0, 680, 1);
+                controls.target.set(0, 85, 0);
+            } else if (mode === 'side') {
+                camera.position.set(0, 130, 560);
+                controls.target.set(0, 85, 0);
+            } else if (mode === 'front') {
+                camera.position.set(-520, 140, 0);
+                controls.target.set(0, 95, 0);
+            } else if (mode === 'bottom') {
+                camera.position.set(-220, -380, 260);
+                controls.target.set(0, 40, 0);
+            }
+            controls.update();
+        }
+
+        function startPickAndPlaceDemo() {
+            demoActive = true;
+            demoTime = 0;
+        }
+
+        function exportSTL() {
+            const exporter = new THREE.STLExporter();
+            const stlData = exporter.parse(rootAssembly, { binary: true });
+            const blob = new Blob([stlData], { type: 'application/octet-stream' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `AGV_BanVeLap_Inventor_${cfg.totalL}x${cfg.totalW}mm.stl`;
+            a.click();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (lidarDiskMesh) lidarDiskMesh.rotation.y += 0.12;
+
+            if (demoActive) {
+                demoTime += 0.012;
+                if (demoTime < 1.0) {
+                    const t = demoTime;
+                    cfg.armYaw = 0;
+                    cfg.armShoulder = 20 + t * 38;
+                    cfg.armElbow = 35 + t * 30;
+                    cfg.gripOpen = 72 - t * 20;
+                } else if (demoTime < 2.0) {
+                    const t = demoTime - 1.0;
+                    cfg.armYaw = 0;
+                    cfg.armShoulder = 58 - t * 48;
+                    cfg.armElbow = 65 - t * 35;
+                    cfg.gripOpen = 52;
+                } else if (demoTime < 3.5) {
+                    const t = (demoTime - 2.0) / 1.5;
+                    cfg.armYaw = Math.round(t * 180);
+                    cfg.armShoulder = 10;
+                    cfg.armElbow = 30;
+                    cfg.gripOpen = 52;
+                } else if (demoTime < 4.5) {
+                    const t = demoTime - 3.5;
+                    cfg.armYaw = 180;
+                    cfg.armShoulder = 10 + t * 36;
+                    cfg.armElbow = 30 + t * 38;
+                    cfg.gripOpen = 52 + (t > 0.75 ? 22 : 0);
+                } else {
+                    demoActive = false;
+                }
+
+                document.getElementById('s-armYaw').value = cfg.armYaw;
+                document.getElementById('v-armYaw').innerText = `${cfg.armYaw}°`;
+                document.getElementById('s-armShoulder').value = cfg.armShoulder;
+                document.getElementById('s-armElbow').value = cfg.armElbow;
+                document.getElementById('s-grip').value = cfg.gripOpen;
+                buildInventorAssembly();
+
+                if (demoTime >= 0.9 && demoTime < 4.25 && gripAttachmentPoint && cargoBoxMesh) {
+                    const wPos = new THREE.Vector3();
+                    gripAttachmentPoint.getWorldPosition(wPos);
+                    cargoBoxMesh.position.copy(wPos);
+                } else if (demoTime >= 4.25 && cargoBoxMesh) {
+                    cargoBoxMesh.position.set(cfg.cabL / 2 + 25, 102, 0);
+                }
+            }
+
+            updateLabelsScreenPosition();
+            renderer.render(scene, camera);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
